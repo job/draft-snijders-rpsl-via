@@ -220,7 +220,22 @@ Appendix B.  Grammar Rules
   HERE BE DRAGONS
 
 
-Appendix C.  Document Change Log
+Appendix C.  Support and commitment
+
+   (RFC Editor - this Appendix can be removed upon publication as RFC)
+
+   Route Server operators whom believe this is a viable solution.
+
+      o ECIX (Route Server operator)
+      o EQUINIX (Route Server operator)
+   
+   Software projects which will receive patches to support the via keyword:
+
+      o IRRToolSet
+      o RADB
+      o RIPE WHOIS
+
+Appendix D.  Document Change Log
 
 C.0.  Initial document
 
