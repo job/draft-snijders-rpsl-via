@@ -51,19 +51,7 @@ Copyright Notice
    described in the Simplified BSD License.
 
 
-
-
-Snijders & Hilliard     Expires November 25, 2013               [Page 1]
-
-Internet-Draft                  RPSL-VIA                        May 2013
-
-
     <Table of contents>
-
-
-Snijders & Hilliard     Expires November 25, 2013               [Page 2]
-
-Internet-Draft                  RPSL-VIA                        May 2013
 
 
 1.  Introduction
@@ -86,16 +74,13 @@ Internet-Draft                  RPSL-VIA                        May 2013
    inform the intermediate autonomous system what routing policy should be
    applied towards other participants. 
 
-Snijders & Hilliard     Expires November 25, 2013               [Page 3]
-
-Internet-Draft                  RPSL-VIA                        May 2013
-
 
 2.  Specification of Requirements
 
    The key words "MUST", "MUST NOT", "REQUIRED", "SHALL", "SHALL NOT",
    "SHOULD", "SHOULD NOT", "RECOMMENDED", "MAY", and "OPTIONAL" in this
    document are to be interpreted as described in [RFC2119].
+
 
 3.  Background
 
@@ -165,11 +150,6 @@ Internet-Draft                  RPSL-VIA                        May 2013
   which do not support interpretation of the via keyword. 
 
 
-Snijders & Hilliard     Expires November 25, 2013              [Page 25]
-
-Internet-Draft                  RPSL-VIA                        May 2013
-
-
 5. Example Usage
    
   Here are examples!
@@ -201,12 +181,6 @@ Internet-Draft                  RPSL-VIA                        May 2013
    There are no security considerations for this specification.  
    
 
-
-Snijders & Hilliard     Expires November 25, 2013              [Page 26]
-
-Internet-Draft                  RPSL-VIA                        May 2013
-
-
 7.  IANA Considerations
 
   Maybe the via keyword must be added to the dictionary, but afaik
@@ -225,12 +199,6 @@ Internet-Draft                  RPSL-VIA                        May 2013
               NUMBERS http://www.iana.org/numbers.html, Febuary 2007.
 
 
-
-Snijders & Hilliard     Expires November 25, 2013              [Page XX]
-
-Internet-Draft                  RPSL-VIA                        May 2013
-
-
 Appendix A.  Acknowledgments
 
    The authors would like to thank Remko van Mook.
@@ -238,10 +206,6 @@ Appendix A.  Acknowledgments
 Appendix B.  Grammar Rules
 
   HERE BE DRAGONS
-
-Snijders & Hilliard     Expires November 25, 2013              [Page XX]
-
-Internet-Draft                  RPSL-VIA                        May 2013
 
 
 Appendix C.  Document Change Log
@@ -251,14 +215,6 @@ C.0.  Initial document
 C.1.  Changes to draft-snijders-rpsl-via-01.txt
 
    o  derp derp
-
-
-
-
-
-Snijders & Hilliard     Expires November 25, 2013              [Page XX]
-
-Internet-Draft                  RPSL-VIA                        May 2013
 
 
 Authors' Addresses
@@ -279,38 +235,3 @@ Authors' Addresses
    IE
 
    Email: nick@inex.ie
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-Snijders & Hilliard     Expires November 25, 2013              [Page 32]
-
