@@ -226,8 +226,8 @@ Appendix C.  Support and commitment
 
    Route Server operators whom believe this is a viable solution.
 
-      o ECIX (Route Server operator)
-      o EQUINIX (Route Server operator)
+      o ECIX 
+      o EQUINIX 
    
    Software projects which will receive patches to support the via keyword:
 
