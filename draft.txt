@@ -201,14 +201,13 @@ Copyright Notice
 
 8.1.  Normative References
 
-   [DERP]     derp
+  [RFC2622] - Routing Policy Specification Language (RPSL)
 
+  [RFC4012] - Routing Policy Specification Language next generation (RPSLng)
 
 8.2.  Informative References
 
-   [AFI]      IANA, "Address Family Identifier (AFIs)", ADDRESS FAMILY
-              NUMBERS http://www.iana.org/numbers.html, Febuary 2007.
-
+  something about path hiding
 
 Appendix A.  Acknowledgments
 
@@ -236,10 +235,12 @@ Appendix C.  Support and commitment
       o RIPE WHOIS
 
 Appendix D.  Document Change Log
+   
+   (RFC Editor - this Appendix can be removed upon publication as RFC)
 
-C.0.  Initial document
+D.0.  Initial document
 
-C.1.  Changes to draft-snijders-rpsl-via-01.txt
+D.1.  Changes to draft-snijders-rpsl-via-01.txt
 
    o  derp derp
 
