@@ -178,8 +178,12 @@ Copyright Notice
           announce AS-ATRATO
   export: via AS5580:AS-ROUTESERVERS to AS5580:AS-CUSTOMERS announce NOT ANY
   mp-export: afi ipv6.unicast via AS6777 to AS15562 announce AS-ATRATO
-          
-           
+
+  In the above examples AS5580 and AS15562 are Route Server participants.
+  AS6777 functions as a Route Server and AS-SET AS5580:AS-ROUTESERVERS
+  contains a list of Route Server AS Numbers. AS-SET AS5580:AS-CUSTOMERS
+  contains a list of downstream transit customers from AS5580. 
+
 6.  Security Considerations
 
    There are no security considerations for this specification.  
@@ -205,7 +209,8 @@ Copyright Notice
 
 Appendix A.  Acknowledgments
 
-   The authors would like to thank Remko van Mook 
+   The authors would like to thank Remko van Mook for confirming that 'via'
+   is a better keyword than 'through'.
 
 Appendix B.  Grammar Rules
 
