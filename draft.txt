@@ -1,6 +1,3 @@
-
-
-
 Network Working Group                                        J. Snijders
 Internet-Draft                                        Atrato IP Networks
 Intended status: Standards Track                             N. Hilliard
@@ -121,12 +118,14 @@ Copyright Notice
              [via <peering-1>]                             optional,
              from <peering-2> [action <action-1>]
              . . .
+             [via <peering-3>]                             optional,
              from <peering-N> [action <action-N>]
              accept <filter>
   export     [protocol <protocol-1>] [into <protocol-2>]   optional,
              [via <peering-1>]                             optional,
              to <peering-2> [action <action-1>]             
              . . .
+             [via <peering-3>]                             optional,
              to <peering-N> [action <action-N>]
              announce <filter>
   
@@ -135,6 +134,7 @@ Copyright Notice
              [via <peering-1>]                             optional,
              from <mp-peering-2> [action <action-1>; ... <action-N>;]
              . . .
+             [via <peering-3>]                             optional,
              from <mp-peering-M> [action <action-1>; ... <action-N>;]
              accept <mp-filter> [;]
 
@@ -143,10 +143,11 @@ Copyright Notice
              [via peering-1>]                              optional,
              to <mp-peering-2> [action <action-1>; ... <action-N>;]
              . . .
+             [via peering-3>]                              optional,
              to <mp-peering-M> [action <action-1>; ... <action-N>;]
              announce <mp-filter> [;]
   
-  The via specification is optional, and should be ignore by implementations
+  The via specification is optional, and should be ignored by implementations
   which do not support interpretation of the via keyword. 
 
 
