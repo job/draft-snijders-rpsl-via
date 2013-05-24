@@ -94,13 +94,13 @@ Copyright Notice
    distribution calculations on the Route Server unless a mapping system
    is applied. 
 
-   Transit providers often uphold a routing policy which expresses that
+   Transit providers often uphold a routing policy which intents that
    the transit provider does not want to exchange paths with its downstream
-   customers. The via keyword allows transit providers to participate in
-   Multi-Lateral Peering services while instructing Route Server operators
-   through a simple routing policy specification that paths should not
-   be distributed to downstream customers and reducing the likelyhood
-   of Path Hiding on the Route Server.
+   customers through Route Servers. The via keyword allows transit providers
+   to participate in Multi-Lateral Peering services while instructing Route
+   Server operators through a simple routing policy specification that paths 
+   should not be distributed to downstream customers and reducing the 
+   likelyhood of Path Hiding on the Route Server.
 
 4.  Import and Export Via Syntax and Semantics
 
@@ -172,14 +172,17 @@ Copyright Notice
           via AS3 from AS4
           accept PeerAS
   mp-import: afi ipv6.unicast via AS6777 from AS15562 accept AS-SNIJDERS
+  mp-import: via AS6777 from AS65551 accept AS-SET-FROM-32BIT-ASN
   
   export: via AS6777
           to AS15562 action community.={5580:40};
           announce AS-ATRATO
   export: via AS5580:AS-ROUTESERVERS to AS5580:AS-CUSTOMERS announce NOT ANY
   mp-export: afi ipv6.unicast via AS6777 to AS15562 announce AS-ATRATO
+  mp-export: via AS6777 to AS65551 announce AS-ATRATO
 
   In the above examples AS5580 and AS15562 are Route Server participants.
+  AS65551 is a participant whom has been assigned a 32 bit AS Number.
   AS6777 functions as a Route Server and AS-SET AS5580:AS-ROUTESERVERS
   contains a list of Route Server AS Numbers. AS-SET AS5580:AS-CUSTOMERS
   contains a list of downstream transit customers from AS5580. 
@@ -210,7 +213,7 @@ Copyright Notice
 Appendix A.  Acknowledgments
 
    The authors would like to thank Remko van Mook for confirming that 'via'
-   is a better keyword than 'through'.
+   is a better keyword than 'through' or 'thru'.
 
 Appendix B.  Grammar Rules
 
