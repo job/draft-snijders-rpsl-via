@@ -109,30 +109,30 @@ Internet-Draft                  RPSL-VIA                        May 2013
   The syntax for these attributes is as follows:
 
   Attribute  Value                                         Type
-  import     [via <peering-1>]                             optional,
-             [protocol <protocol-1>] [into <protocol-2>]   optional,
+  import     [protocol <protocol-1>] [into <protocol-2>]   optional,
+             [via <peering-1>]                             optional,
              from <peering-2> [action <action-1>]
              . . .
              from <peering-N> [action <action-N>]
              accept <filter>
-  export     [via <peering-1>]                             optional,
-             [protocol <protocol-1>] [into <protocol-2>]   optional,
+  export     [protocol <protocol-1>] [into <protocol-2>]   optional,
+             [via <peering-1>]                             optional,
              to <peering-2> [action <action-1>]             
              . . .
              to <peering-N> [action <action-N>]
              announce <filter>
   
-  mp-import  [via <peering-1>]                             optional,
-             [protocol <protocol-1>] [into <protocol-2>]   optional,
+  mp-import  [protocol <protocol-1>] [into <protocol-2>]   optional,
              [afi <afi-list>]                              multi-valued
+             [via <peering-1>]                             optional,
              from <mp-peering-2> [action <action-1>; ... <action-N>;]
              . . .
              from <mp-peering-M> [action <action-1>; ... <action-N>;]
              accept <mp-filter> [;]
 
-  mp-export  [via peering-1>]                              optional,
-             [protocol <protocol-1>] [into <protocol-2>]   optional,
+  mp-export  [protocol <protocol-1>] [into <protocol-2>]   optional,
              [afi <afi-list>]                              multi-valued
+             [via peering-1>]                              optional,
              to <mp-peering-2> [action <action-1>; ... <action-N>;]
              . . .
              to <mp-peering-M> [action <action-1>; ... <action-N>;]
@@ -155,7 +155,7 @@ Internet-Draft                  RPSL-VIA                        May 2013
   import: via AS6777
           from AS15562
           action pref = 2;
-          accept AS-ATRATO
+          accept AS-SNIJDERS
   import: via AS6777
           from AS5580:AS-CUSTOMERS
           accept NOT ANY
@@ -164,16 +164,13 @@ Internet-Draft                  RPSL-VIA                        May 2013
           from AS2
           via AS3 from AS4
           accept PeerAS
-  mp-import: via AS6777
-             afi ipv6.unicast from AS15562 accept AS-SNIJDERS
+  mp-import: afi ipv6.unicast via AS6777 from AS15562 accept AS-SNIJDERS
   
   export: via AS6777
           to AS15562 action community.={5580:40};
           announce AS-ATRATO
-  export: via AS5580:AS-ROUTESERVERS to AS5580:AS-CUSTOMERS
-          announce NOT ANY
-  mp-export: via AS6777
-             afi ipv6.unicast to AS15562 announce AS-ATRATO
+  export: via AS5580:AS-ROUTESERVERS to AS5580:AS-CUSTOMERS announce NOT ANY
+  mp-export: afi ipv6.unicast via AS6777 to AS15562 announce AS-ATRATO
           
            
 5.  Security Considerations
