@@ -229,9 +229,12 @@ Appendix C.  Support and commitment
    
    Software projects which will receive patches to support the via keyword:
 
-      o IRRToolSet
       o RADB
       o RIPE WHOIS
+
+   Software that might need a patch:
+
+      o IRRToolSet
 
 Appendix D.  Document Change Log
    
