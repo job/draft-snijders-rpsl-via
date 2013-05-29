@@ -304,6 +304,7 @@ is a better keyword than 'through' or 'thru'.
   <back>
 
     <references title="Normative References">
+      <?rfc include="reference.RFC.1997"?> <!-- bgp communities -->
       <?rfc include="reference.RFC.2119"?> <!-- keywords -->
       <?rfc include="reference.RFC.2622"?> <!-- Routing Policy Specification Language (RPSL) -->
       <?rfc include="reference.RFC.4012"?> <!-- Routing Policy Specification Language next generation (RPSLng) -->
