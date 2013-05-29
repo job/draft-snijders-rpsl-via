@@ -95,7 +95,7 @@ to directly adjacent networks.
 This document proposes to extend RPSL according to the following
 goals and requirements:
 
-        <list>
+        <list style='symbols'>
           <t>
 
 Provide a way to describe what an adjacent network could use
@@ -167,12 +167,14 @@ likelyhood of Path Hiding on the Route Server.
 
 The via keyword can be used with the following policy attributes:
 
-  import:
-  export:
-  mp-import:
-  mp-export:
+    <list style="empty">
+        <t>import:</t>
+        <t>export:</t>
+        <t>mp-import:</t>
+        <t>mp-export:</t>
+    </list>
 
-        <figure anchor='vis_syntax'>
+        <figure anchor="vis_syntax">
           <preamble>The syntax for these attributes is as follows:</preamble>
           <artwork>
 Attribute  Value                                         Type
