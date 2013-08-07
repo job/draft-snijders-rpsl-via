@@ -288,8 +288,7 @@ Internet-Draft         The via attributes in RPSL            August 2013
 
 7.  IANA Considerations
 
-   The new set of mechanisms for route servers does not require any new
-   allocations from IANA.
+   This document has no IANA actions.
 
 
 8.  Acknowledgments
@@ -326,6 +325,7 @@ Internet-Draft         The via attributes in RPSL            August 2013
               "Internet Exchange Route Server",
               draft-ietf-idr-ix-bgp-route-server-02 (work in progress),
               February 2013.
+
 
 
 

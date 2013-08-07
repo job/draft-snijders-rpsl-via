@@ -263,8 +263,7 @@ There are no security considerations for this specification.
     <section title="IANA Considerations">
       <t>
 
-The new set of mechanisms for route servers does not require any new
-allocations from IANA.
+This document has no IANA actions.
 
       </t>
     </section>
