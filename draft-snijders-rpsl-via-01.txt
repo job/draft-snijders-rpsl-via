@@ -7,7 +7,8 @@ Intended status: Informational                            August 7, 2013
 Expires: February 8, 2014
 
 
-            The 'via' keyword in RPSL Policy Specifications
+      The "import-via" and "export-via" attributes in RPSL Policy
+                             Specifications
                        draft-snijders-rpsl-via-01
 
 Abstract
@@ -51,10 +52,9 @@ Copyright Notice
 
 
 
-
 Snijders                Expires February 8, 2014                [Page 1]
 
-Internet-Draft          The 'via' keyword in RPSL            August 2013
+Internet-Draft         The via attributes in RPSL            August 2013
 
 
 Table of Contents
@@ -110,7 +110,7 @@ Table of Contents
 
 Snijders                Expires February 8, 2014                [Page 2]
 
-Internet-Draft          The 'via' keyword in RPSL            August 2013
+Internet-Draft         The via attributes in RPSL            August 2013
 
 
 1.  Introduction
@@ -166,7 +166,7 @@ Internet-Draft          The 'via' keyword in RPSL            August 2013
 
 Snijders                Expires February 8, 2014                [Page 3]
 
-Internet-Draft          The 'via' keyword in RPSL            August 2013
+Internet-Draft         The via attributes in RPSL            August 2013
 
 
    transit providers to participate in Multi-Lateral Peering services
@@ -222,7 +222,7 @@ Internet-Draft          The 'via' keyword in RPSL            August 2013
 
 Snijders                Expires February 8, 2014                [Page 4]
 
-Internet-Draft          The 'via' keyword in RPSL            August 2013
+Internet-Draft         The via attributes in RPSL            August 2013
 
 
    adjacent networks, for instance a Multi-Lateral Peering service.
@@ -278,7 +278,7 @@ Internet-Draft          The 'via' keyword in RPSL            August 2013
 
 Snijders                Expires February 8, 2014                [Page 5]
 
-Internet-Draft          The 'via' keyword in RPSL            August 2013
+Internet-Draft         The via attributes in RPSL            August 2013
 
 
 6.  Security Considerations
@@ -334,7 +334,7 @@ Internet-Draft          The 'via' keyword in RPSL            August 2013
 
 Snijders                Expires February 8, 2014                [Page 6]
 
-Internet-Draft          The 'via' keyword in RPSL            August 2013
+Internet-Draft         The via attributes in RPSL            August 2013
 
 
 Appendix A.  Grammar Rules

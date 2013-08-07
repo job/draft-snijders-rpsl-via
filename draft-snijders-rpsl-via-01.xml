@@ -36,8 +36,8 @@
   <!-- ***** FRONT MATTER ***** -->
 
   <front>
-    <title abbrev="The 'via' keyword in RPSL">
-      The 'via' keyword in RPSL Policy Specifications
+    <title abbrev="The via attributes in RPSL">
+      The "import-via" and "export-via" attributes in RPSL Policy Specifications
     </title>
 
     <author initials="J" surname="Snijders" fullname="Job Snijders">
