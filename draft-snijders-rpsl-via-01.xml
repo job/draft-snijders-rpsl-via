@@ -23,7 +23,7 @@
 <!-- keep one blank line between list items -->
 <!-- end of list of popular I-D processing instructions -->
 <rfc category="info"
-     docName="draft-snijders-rpsl-via-00"
+     docName="draft-snijders-rpsl-via-01"
      ipr="trust200902"
      obsoletes=""
      updates=""
@@ -53,26 +53,13 @@
       </address>
     </author>
 
-    <author initials="N" surname="Hilliard" fullname="Nick Hilliard">
-      <organization>INEX</organization>
-      <address>
-        <postal>
-          <street>4027 Kingswood Road</street>
-          <city>Dublin</city>
-          <code>24</code>
-          <country>IE</country>
-        </postal>
-        <email>nick@inex.ie</email>
-      </address>
-    </author>
-
-    <date year="2013" month="May"/>
+    <date year="2013" month="August"/>
 
     <abstract>
       <t>
 
-This document defines the 'via' keyword which can be used in RPSL
-policy specifications to publish desired routing policy regarding
+This document defines two attributes in the aut-num Class which can be used
+in RPSL policy specifications to publish desired routing policy regarding
 non-adjacent networks. 
 
       </t>
@@ -98,20 +85,20 @@ goals and requirements:
         <list style='symbols'>
           <t>
 
-Provide a way to describe what an adjacent network could use
-as routing policy towards its adjacent networks.
+Provide a way to describe what an adjacent network could use as routing policy
+towards its adjacent networks.
 
           </t>
           <t>
 
 The extension should be backward compatible with minimal impact on existing
-tools and processes, following Section 10 of <xref target="RFC2622" />.
+tools and processes, following Section 10.2 of <xref target="RFC2622" />.
 
           </t>
         </list>
 
-The addition of a 'via' keyword in import and export related attributes
-will especially help participants of Multi-Lateral Peering services to
+The addition of the 'via-import' and 'via-export' attributes in the aut-num
+Class will especially help participants of Multi-Lateral Peering services to
 inform the intermediate autonomous system what routing policy should be
 applied towards other participants. 
 
@@ -165,49 +152,32 @@ likelyhood of Path Hiding on the Route Server.
     <section title="Import and Export Via Syntax and Semantics">
       <t>
 
-The via keyword can be used with the following policy attributes:
+The two attributes can be used within the aut-num class.
 
     <list style="empty">
-        <t>import:</t>
-        <t>export:</t>
-        <t>mp-import:</t>
-        <t>mp-export:</t>
+        <t>import-via:</t>
+        <t>export-via:</t>
     </list>
 
         <figure anchor="vis_syntax">
           <preamble>The syntax for these attributes is as follows:</preamble>
           <artwork>
 Attribute  Value                                         Type
-import     [protocol &lt;protocol-1&gt;] [into &lt;protocol-2&gt;]   optional,
-           [via &lt;peering-1&gt;]                             optional,
-           from &lt;peering-2&gt; [action &lt;action-1&gt;]
-           . . .
-           [via &lt;peering-3&gt;]                             optional,
-           from &lt;peering-N&gt; [action &lt;action-N&gt;]
-           accept &lt;filter&gt;
-export     [protocol &lt;protocol-1&gt;] [into &lt;protocol-2&gt;]   optional,
-           [via &lt;peering-1&gt;]                             optional,
-           to &lt;peering-2&gt; [action &lt;action-1&gt;]             
-           . . .
-           [via &lt;peering-3&gt;]                             optional,
-           to &lt;peering-N&gt; [action &lt;action-N&gt;]
-           announce &lt;filter&gt;
-
-mp-import  [protocol &lt;protocol-1&gt;] [into &lt;protocol-2&gt;]   optional,
+import-via [protocol &lt;protocol-1&gt;] [into &lt;protocol-2&gt;]   optional,
            [afi &lt;afi-list&gt;]                              multi-valued
-           [via &lt;peering-1&gt;]                             optional,
+           &lt;mp-peering-1&gt;
            from &lt;mp-peering-2&gt; [action &lt;action-1&gt;; ... &lt;action-N&gt;;]
            . . .
-           [via &lt;peering-3&gt;]                             optional,
+           &klt;mp-peering-3&gt;
            from &lt;mp-peering-M&gt; [action &lt;action-1&gt;; ... &lt;action-N&gt;;]
            accept &lt;mp-filter&gt; [;]
 
-mp-export  [protocol &lt;protocol-1&gt;] [into &lt;protocol-2&gt;]   optional,
+export-via [protocol &lt;protocol-1&gt;] [into &lt;protocol-2&gt;]   optional,
            [afi &lt;afi-list&gt;]                              multi-valued
-           [via peering-1&gt;]                              optional,
+           &lt;mp-peering-1&gt;
            to &lt;mp-peering-2&gt; [action &lt;action-1&gt;; ... &lt;action-N&gt;;]
            . . .
-           [via peering-3&gt;]                              optional,
+           &lt;mp-peering-3&gt;
            to &lt;mp-peering-M&gt; [action &lt;action-1&gt;; ... &lt;action-N&gt;;]
            announce &lt;mp-filter&gt; [;]
 
@@ -216,8 +186,12 @@ mp-export  [protocol &lt;protocol-1&gt;] [into &lt;protocol-2&gt;]   optional,
       </t>
       <t>
 
-The via keyword is optional, and should be ignored by implementations
-which do not support interpretation of the via keyword. 
+The import-via and export-via attributes are optional, and should be ignored by
+implementations which do not support interpretation of those attributes. The
+syntax closely mimicks the mp-import and mp-export attributes described in 
+Section 2.5 of <xref target="RFC4012" />, with the exception that before the
+"from" and "to" keywords an &klt;mp-peering&gt; is defined to indicate the
+common AS between two non-adjacent networks.
 
       </t>
       <t>
@@ -236,42 +210,44 @@ non-adjacent network.
           <preamble>Putting it all together:</preamble>
           <artwork>
    aut-num: AS5580
-   import: via AS6777
+   import-via: AS6777
                 from AS15562
                 action pref = 2;
                 accept AS-SNIJDERS
-   import: via AS6777
-                from AS5580:AS-CUSTOMERS
-                accept NOT ANY
-   import: via AS6777 from AS15562
-                from AS1
-                from AS2
-                via AS3 from AS4
-                accept PeerAS
-   mp-import: afi ipv6.unicast via AS6777 
-                from AS15562 accept AS-SNIJDERS
-   mp-import: via AS6777
-                from AS65551 accept AS-SET-FROM-32BIT-ASN
-   export: via AS6777
+   export-via: AS6777
                 to AS15562 action community.={5580:40};
                 announce AS-ATRATO
-   export: via AS5580:AS-ROUTESERVERS
+   import-via: AS5580:AS-ROUTESERVERS
+                from AS5580:AS-CUSTOMERS
+                accept NOT ANY
+   export-via: AS5580:AS-ROUTESERVERS
                 to AS5580:AS-CUSTOMERS announce NOT ANY
-   mp-export: afi ipv6.unicast via AS6777
-                to AS15562 announce AS-ATRATO
-   mp-export: via AS6777
-                to AS65551 announce AS-ATRATO
-
+   import-via: AS6777
+                from AS4247483647
+                accept AS4247483647
+   export-via: AS6777
+                to AS4247483647 action community.={5580:40};
+                announce AS-ATRATO
           </artwork>
         </figure>
       </t>
       <t>
  
 In the above examples AS5580 and AS15562 are Route Server participants.
-AS65551 is a participant whom has been assigned a 32 bit AS Number.
-AS6777 functions as a Route Server and AS-SET AS5580:AS-ROUTESERVERS
-contains a list of Route Server AS Numbers. AS-SET AS5580:AS-CUSTOMERS
-contains a list of downstream transit customers from AS5580. 
+AS4247483647 is a participant whom has been assigned a 32 bit AS Number.
+AS6777 functions as a Route Server <xref target="I-D.ietf-idr-ix-bgp-route-server" />
+and AS-SET AS5580:AS-ROUTESERVERS contains a list of Route Server AS Numbers.
+AS-SET AS5580:AS-CUSTOMERS contains a list of downstream transit customers from AS5580. 
+    </t>
+    <t>
+The intention of the above policy would be to enable the exchange of NLRI's
+through AS6777 with two parties: AS15562 and AS4247483647, yet prevent the
+Route Server from distributing NLRI's announced by AS5580 towards customers of
+said network. Publishing the policy that AS5580 will not accept customer
+routes through the Route Server can help counteract the "path hiding" phenomenon
+as described in Section 2.3.1 of <xref target="I-D.ietf-idr-ix-bgp-route-server" />,
+as the Route Server now is informed which NLRI's should not be considered in
+the best path selection process.
 
       </t>
     </section>
@@ -296,7 +272,8 @@ allocations from IANA.
       <t>
 
 The authors would like to thank Remko van Mook for confirming that 'via'
-is a better keyword than 'through' or 'thru'.
+is a better keyword than 'through' or 'thru', Nick Hilliard for his 
+unparalleled support and Jeffrey Haas for providing historic perspective. 
 
       </t>
     </section>
@@ -313,50 +290,13 @@ is a better keyword than 'through' or 'thru'.
     </references>
 
     <references title="Informative References">
-      <?rfc include="reference.I-D.hilliard-ix-bgp-route-server-operations"?> <!-- path hiding -->
-    </references>
+      <?rfc include="reference.I-D.ietf-idr-ix-bgp-route-server"?>
+    </references> 
 
     <section title="Grammar Rules">
       <t>
           
 HERE BE DRAGONS
-
-      </t>
-    </section>
-
-    <section title="Support and Commitment">
-      <t>
-          
-(RFC Editor - this Appendix can be removed upon publication as RFC)
-
-      </t>
-      <t>
-
-Route Server operators whom believe this is a viable solution:
-        <list style='symbols'>
-          <t>ECIX</t>
-          <t>EQUINIX </t>
-        </list>
-
-      </t>
-      <t>
-   
-Software projects which will receive patches to support the via keyword:
-
-        <list style='symbols'>
-          <t>RADB</t>
-          <t>RIPE WHOIS</t>
-        </list>
-
-      </t>
-      <t>
-
-Software that might need a patch:
-
-        <list style='symbols'>
-          <t>irrtoolset</t>
-          <t>rpsltools</t>
-        </list>
 
       </t>
     </section>
@@ -379,7 +319,8 @@ Initial document.
 Changes to draft-snijders-rpsl-via-01.txt
 
             <list style='letters'>
-              <t>derp derp</t>
+              <t>Moved from adding a new RPSL keyword to a new RPSL attribute
+              to improve backwards compatibility.</t>
             </list>
           </t>
         </list>
