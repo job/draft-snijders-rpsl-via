@@ -371,7 +371,7 @@ Internet-Draft         The via attributes in RPSL            August 2013
 
 Appendix A.  Grammar Rules
 
-   Note that only relevant grammer rules have been listed.  An example
+   Note that only relevant grammar rules have been listed.  An example
    implementation based on IRRd 2.3.10 is available at
    <https://github.com/job/irrd>, and an updated version of the RIPE
    Database whois code is available at: <https://github.com/job/whois>.
@@ -467,7 +467,7 @@ Internet-Draft         The via attributes in RPSL            August 2013
                opt_router_expression_with_at
        | T_PRNGNAME
 
-   // Below are two grammer rules that actually differ
+   // Below are two grammar rules that actually differ
    // from mp-import: + mp-export:
 
    import_peering_action_list: peering T_FROM peering opt_action
@@ -493,7 +493,7 @@ Appendix B.  Document Change Log
 
    3.  Changes to draft-snijders-rpsl-via-02.txt
 
-       A.  Added grammer appendix.
+       A.  Added grammar appendix.
 
        B.  Added section about Ambiguity Resolution.
 
