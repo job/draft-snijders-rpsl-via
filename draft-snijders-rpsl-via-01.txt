@@ -71,7 +71,7 @@ Table of Contents
      9.1.  Normative References  . . . . . . . . . . . . . . . . . . . 6
      9.2.  Informative References  . . . . . . . . . . . . . . . . . . 6
    Appendix A.  Grammar Rules  . . . . . . . . . . . . . . . . . . . . 7
-   Appendix B.  Document Change Log  . . . . . . . . . . . . . . . . . 8
+   Appendix B.  Document Change Log  . . . . . . . . . . . . . . . . . 9
    Author's Address  . . . . . . . . . . . . . . . . . . . . . . . . . 9
 
 
@@ -343,11 +343,17 @@ Appendix A.  Grammar Rules
    program.  Only relevant grammer rules have been listed.  An example
    implementation is available at <https://github.com/job/irrd>.
 
-   Grammer rules for the import-via and export-via attributes.
 
 
+   %type <string> line_autnum
+   %type <string> attr_autnum
    %type <string> attr_import_via
    %type <string> attr_export_via
+
+   %token T_IV_KEY //*** import-via: ***
+   %token T_EV_KEY //*** export-via: ***
+   %token T_AFI T_PROTOCOL T_WORD T_INTO T_EXCEPT T_REFINE
+   %token T_ACCEPT T_ANNOUNCE T_TO T_FROM T_PRNGNAME
 
    line_autnum: attr_autnum
        | attr_import_via
@@ -379,12 +385,6 @@ Appendix A.  Grammar Rules
 
    import_simple: opt_afi_specification import_factor
 
-   export_simple: opt_afi_specification export_factor
-
-   afi_import_exp: opt_afi_specification import_exp
-
-   afi_export_exp: opt_afi_specification export_exp
-
 
 
 
@@ -392,6 +392,12 @@ Snijders                Expires February 10, 2014               [Page 7]
 
 Internet-Draft         The via attributes in RPSL            August 2013
 
+
+   export_simple: opt_afi_specification export_factor
+
+   afi_import_exp: opt_afi_specification import_exp
+
+   afi_export_exp: opt_afi_specification export_exp
 
    import_exp: import_term
        | import_term T_EXCEPT afi_import_exp
@@ -417,27 +423,21 @@ Internet-Draft         The via attributes in RPSL            August 2013
 
    export_factor: export_peering_action_list T_ANNOUNCE filter
 
-   import_peering_action_list: T_FROM peering opt_action
-       | peering T_FROM peering opt_action
-       | import_peering_action_list T_FROM peering opt_action
-       | import_peering_action_list peering T_FROM peering opt_action
-
-   export_peering_action_list: T_TO peering opt_action
-       | peering T_TO peering opt_action
-       | export_peering_action_list T_TO peering opt_action
-       | export_peering_action_list peering T_TO peering opt_action
-
    peering: as_expression opt_router_expression \
                opt_router_expression_with_at
        | T_PRNGNAME
 
+   // Below are two grammer rules that actually differ
+   // from mp-import: + mp-export:
+
+   import_peering_action_list: peering T_FROM peering opt_action
+       | import_peering_action_list peering T_FROM peering opt_action
+
+   export_peering_action_list: peering T_TO peering opt_action
+       | export_peering_action_list peering T_TO peering opt_action
+
 
                                  Figure 3
-
-
-Appendix B.  Document Change Log
-
-   (RFC Editor - this Appendix can be removed upon publication as RFC)
 
 
 
@@ -449,12 +449,20 @@ Snijders                Expires February 10, 2014               [Page 8]
 Internet-Draft         The via attributes in RPSL            August 2013
 
 
+Appendix B.  Document Change Log
+
+   (RFC Editor - this Appendix can be removed upon publication as RFC)
+
    1.  Initial document.
 
    2.  Changes to draft-snijders-rpsl-via-01.txt
 
        A.  Moved from adding a new RPSL keyword to a new RPSL attribute
            to improve backwards compatibility.
+
+   3.  Changes to draft-snijders-rpsl-via-02.txt
+
+       A.  Added grammer appendix.
 
 
 Author's Address
@@ -466,14 +474,6 @@ Author's Address
    NL
 
    Email: job.snijders@atrato.com
-
-
-
-
-
-
-
-
 
 
 

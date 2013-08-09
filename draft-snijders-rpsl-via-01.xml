@@ -302,11 +302,17 @@ David Croft for nitpicking.
       </t>
       <t>
     <figure anchor="gram_syntax">
-        <preamble>Grammer rules for the import-via and export-via attributes.</preamble>
         <artwork>
 
+%type &lt;string&gt; line_autnum
+%type &lt;string&gt; attr_autnum
 %type &lt;string&gt; attr_import_via
 %type &lt;string&gt; attr_export_via
+
+%token T_IV_KEY //*** import-via: ***
+%token T_EV_KEY //*** export-via: ***
+%token T_AFI T_PROTOCOL T_WORD T_INTO T_EXCEPT T_REFINE
+%token T_ACCEPT T_ANNOUNCE T_TO T_FROM T_PRNGNAME
 
 line_autnum: attr_autnum 
     | attr_import_via
@@ -368,52 +374,50 @@ import_factor: import_peering_action_list T_ACCEPT filter
 
 export_factor: export_peering_action_list T_ANNOUNCE filter
 
-import_peering_action_list: T_FROM peering opt_action
-    | peering T_FROM peering opt_action
-    | import_peering_action_list T_FROM peering opt_action
-    | import_peering_action_list peering T_FROM peering opt_action
-
-export_peering_action_list: T_TO peering opt_action
-    | peering T_TO peering opt_action
-    | export_peering_action_list T_TO peering opt_action
-    | export_peering_action_list peering T_TO peering opt_action
-
 peering: as_expression opt_router_expression \
             opt_router_expression_with_at
     | T_PRNGNAME 
 
+// Below are two grammer rules that actually differ
+// from mp-import: + mp-export:
+
+import_peering_action_list: peering T_FROM peering opt_action
+    | import_peering_action_list peering T_FROM peering opt_action
+
+export_peering_action_list: peering T_TO peering opt_action
+    | export_peering_action_list peering T_TO peering opt_action
+
 </artwork>
 </figure>
 
-      </t>
-    </section>
+</t>
+</section>
 
-    <section title="Document Change Log">
-      <t>
+<section title="Document Change Log">
+<t> (RFC Editor - this Appendix can be removed upon publication as RFC)</t>
+<t>
+    <list style="numbers">
+    <t> Initial document.</t> 
 
-(RFC Editor - this Appendix can be removed upon publication as RFC)
-
-      </t>
-      <t>
-        <list style="numbers">
-          <t>
-
-Initial document.
-
-          </t> 
-          <t> 
-
-Changes to draft-snijders-rpsl-via-01.txt
-
-            <list style="letters">
-              <t>Moved from adding a new RPSL keyword to a new RPSL attribute
-              to improve backwards compatibility.</t>
-            </list>
-          </t>
+    <t>Changes to draft-snijders-rpsl-via-01.txt
+    <list style="letters">
+        <t>
+        Moved from adding a new RPSL keyword to a new RPSL attribute
+        to improve backwards compatibility.</t>
         </list>
-      </t>
-    </section>
-  </back>
+    </t>
+
+    <t>Changes to draft-snijders-rpsl-via-02.txt
+    <list style="letters">
+        <t>
+        Added grammer appendix.</t>
+        </list>
+    </t>
+
+</list>
+</t>
+</section>
+</back>
 
 </rfc>
 
