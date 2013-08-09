@@ -97,7 +97,7 @@ tools and processes, following Section 10.2 of <xref target="RFC2622" />.
           </t>
         </list>
 
-The addition of the 'via-import' and 'via-export' attributes in the aut-num
+The addition of the 'import-via' and 'export-via' attributes in the aut-num
 Class will especially help participants of Multi-Lateral Peering services to
 inform the intermediate autonomous system what routing policy should be
 applied towards other participants. 
@@ -168,7 +168,7 @@ import-via [protocol &lt;protocol-1&gt;] [into &lt;protocol-2&gt;]   optional,
            &lt;mp-peering-1&gt;
            from &lt;mp-peering-2&gt; [action &lt;action-1&gt;; ... &lt;action-N&gt;;]
            . . .
-           &klt;mp-peering-3&gt;
+           &lt;mp-peering-3&gt;
            from &lt;mp-peering-M&gt; [action &lt;action-1&gt;; ... &lt;action-N&gt;;]
            accept &lt;mp-filter&gt; [;]
 
