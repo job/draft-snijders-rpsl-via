@@ -160,7 +160,7 @@ Internet-Draft         The via attributes in RPSL            August 2013
 
    Transit providers often have a routing policy which states that the
    transit provider does not want to exchange paths with its downstream
-   customers through Route Servers via public Internet Exxchanges.  The
+   customers through Route Servers via public Internet Exchanges.  The
 
 
 

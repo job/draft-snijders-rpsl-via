@@ -140,7 +140,7 @@ is applied.
 
 Transit providers often have a routing policy which states that
 the transit provider does not want to exchange paths with its downstream
-customers through Route Servers via public Internet Exxchanges. The import-via
+customers through Route Servers via public Internet Exchanges. The import-via
 and export-via attributes allow transit providers to participate in
 Multi-Lateral Peering services while instructing Route Server operators
 through a simple routing policy specification that paths should not be
