@@ -371,9 +371,10 @@ Internet-Draft         The via attributes in RPSL            August 2013
 
 Appendix A.  Grammar Rules
 
-   The following grammer code was made available for Merit's IRRd
-   program.  Only relevant grammer rules have been listed.  An example
-   implementation is available at <https://github.com/job/irrd>.
+   Note that only relevant grammer rules have been listed.  An example
+   implementation based on IRRd 2.3.10 is available at
+   <https://github.com/job/irrd>, and an updated version of the RIPE
+   Database whois code is available at: <https://github.com/job/whois>.
 
 
 
@@ -384,7 +385,6 @@ Appendix A.  Grammar Rules
 
    %token T_IV_KEY //*** import-via: ***
    %token T_EV_KEY //*** export-via: ***
-   %token T_AFI T_PROTOCOL T_WORD T_INTO T_EXCEPT T_REFINE
 
 
 
@@ -393,6 +393,7 @@ Snijders                Expires February 10, 2014               [Page 7]
 Internet-Draft         The via attributes in RPSL            August 2013
 
 
+   %token T_AFI T_PROTOCOL T_WORD T_INTO T_EXCEPT T_REFINE
    %token T_ACCEPT T_ANNOUNCE T_TO T_FROM T_PRNGNAME
 
    line_autnum: attr_autnum
@@ -440,7 +441,6 @@ Internet-Draft         The via attributes in RPSL            August 2013
 
    import_term: import_factor ';'
        | '{' import_factor_list '}'
-
 
 
 
