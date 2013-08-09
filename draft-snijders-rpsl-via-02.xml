@@ -23,7 +23,7 @@
 <!-- keep one blank line between list items -->
 <!-- end of list of popular I-D processing instructions -->
 <rfc category="info"
-     docName="draft-snijders-rpsl-via-01"
+     docName="draft-snijders-rpsl-via-02"
      ipr="trust200902"
      obsoletes=""
      updates=""
@@ -191,7 +191,7 @@ The import-via and export-via attributes are optional, and should be ignored by
 implementations which do not support interpretation of those attributes. The
 syntax closely mimicks the mp-import and mp-export attributes described in 
 Section 2.5 of <xref target="RFC4012" />, with the exception that before the
-"from" and "to" keywords an &klt;mp-peering&gt; is defined to indicate the
+"from" and "to" keywords an &lt;mp-peering&gt; is defined to indicate the
 common AS between two non-adjacent networks.
 
       </t>
@@ -252,6 +252,49 @@ the best path selection process.
 
       </t>
     </section>
+
+    <section title="Ambiguity Resolution">
+      <t>
+
+The same peering can be covered by more than one "via" policy attribute
+or by a combination of multi-protocol policy attributes, or multi-protocol
+policy attributes (when specifying IPv4 unicast policy) and the previously
+defined IPv4 unicast policy attributes.  In these cases, implementations
+should follow the specification-order rule as defined in Section 6.4 of
+RFC 2622 [1]. 
+
+Operators should take note that in order to break ambiguity, the action
+corresponding to the first peering specification is used.
+</t>
+
+<t>Consider the following example regarding ambiguity resolution.
+
+<figure anchor="ambiguity">
+<artwork>
+ aut-num: AS5580
+ export:     to AS6777 195.69.144.255 to announce AS5580
+ export-via: AS6777 195.69.144.255 to AS-AMS-IX-RS announce AS-ATRATO
+</artwork>
+</figure>
+
+As both policy specifications cover the same peering with AS6777,
+specification-order rule is used and Route Server AS6777 195.69.144.255
+should only accept AS5580, instead of AS-ATRATO, even though the export-via
+specification is more specific. If the intended policy was to announce all
+routes which can be resolved through AS-ATRATO on this particular peering,
+the operator should have specified:
+
+<figure anchor="ambiguity2">
+<artwork>
+ aut-num: AS5580
+ export-via: AS6777 195.69.144.255 to AS-AMS-IX-RS announce AS-ATRATO
+ export:     to AS6777 195.69.144.255 to announce AS5580
+</artwork>
+</figure>
+
+      </t>
+    </section>
+
 
     <section title="Security Considerations">
       <t>
@@ -409,8 +452,8 @@ export_peering_action_list: peering T_TO peering opt_action
 
     <t>Changes to draft-snijders-rpsl-via-02.txt
     <list style="letters">
-        <t>
-        Added grammer appendix.</t>
+        <t>Added grammer appendix.</t>
+        <t>Added section about Ambiguity Resolution.</t>
         </list>
     </t>
 
