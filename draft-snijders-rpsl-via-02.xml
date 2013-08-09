@@ -339,9 +339,10 @@ David Croft for nitpicking.
 
     <section title="Grammar Rules">
       <t>
-      The following grammer code was made available for Merit's IRRd program.
-      Only relevant grammer rules have been listed. An example implementation
-      is available at &lt;https://github.com/job/irrd&gt;.
+      Note that only relevant grammer rules have been listed. An example implementation
+      based on IRRd 2.3.10 is available at &lt;https://github.com/job/irrd&gt;,
+      and an updated version of the RIPE Database whois code is available at:
+      &lt;https://github.com/job/whois&gt;.
       </t>
       <t>
     <figure anchor="gram_syntax">
