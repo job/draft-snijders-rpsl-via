@@ -85,8 +85,8 @@ goals and requirements:
         <list style="symbols">
           <t>
 
-Provide a way to describe what an adjacent network could use as routing policy
-towards its adjacent networks.
+Provide a way for network (A) to describe what an adjacent network (B) could use
+as routing policy towards its adjacent networks (C, D, E .. N).
 
           </t>
           <t>
