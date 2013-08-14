@@ -150,7 +150,7 @@ Internet-Draft         The via attributes in RPSL            August 2013
    Lateral Peering Agreements facilitated by a Route Server.
 
    Often Route Server operators overload BGP Communities [RFC1997]) to
-   facilitate signalling of desired routing policy between the
+   facilitate signaling of desired routing policy between the
    participants and the Route Server.  Because BGP Communities have a
    length of 32 bit, it is not possible to signal a 32 bit AS Number
    coupled with an action.  In practise this means Route Server
@@ -210,7 +210,7 @@ Internet-Draft         The via attributes in RPSL            August 2013
 
    The import-via and export-via attributes are optional, and should be
    ignored by implementations which do not support interpretation of
-   those attributes.  The syntax closely mimicks the mp-import and mp-
+   those attributes.  The syntax closely mimics the mp-import and mp-
    export attributes described in Section 2.5 of [RFC4012], with the
    exception that before the "from" and "to" keywords an <mp-peering> is
    defined to indicate the common AS between two non-adjacent networks.

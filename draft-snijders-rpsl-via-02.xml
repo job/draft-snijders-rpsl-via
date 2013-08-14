@@ -127,7 +127,7 @@ Multi-Lateral Peering Agreements facilitated by a Route Server.
       <t>
 
 Often Route Server operators overload BGP Communities <xref target="RFC1997"
-/>) to facilitate signalling of desired routing policy between the participants
+/>) to facilitate signaling of desired routing policy between the participants
 and the Route Server. Because BGP Communities have a length of 32 bit,
 it is not possible to signal a 32 bit AS Number coupled with an action.
 In practise this means Route Server participants who use a 32 bit AS
@@ -189,7 +189,7 @@ export-via [protocol &lt;protocol-1&gt;] [into &lt;protocol-2&gt;]   optional,
 
 The import-via and export-via attributes are optional, and should be ignored by
 implementations which do not support interpretation of those attributes. The
-syntax closely mimicks the mp-import and mp-export attributes described in 
+syntax closely mimics the mp-import and mp-export attributes described in 
 Section 2.5 of <xref target="RFC4012" />, with the exception that before the
 "from" and "to" keywords an &lt;mp-peering&gt; is defined to indicate the
 common AS between two non-adjacent networks.
