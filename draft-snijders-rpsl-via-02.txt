@@ -3,8 +3,8 @@
 
 Network Working Group                                        J. Snijders
 Internet-Draft                                        Atrato IP Networks
-Intended status: Informational                            August 9, 2013
-Expires: February 10, 2014
+Intended status: Informational                           August 14, 2013
+Expires: February 15, 2014
 
 
       The "import-via" and "export-via" attributes in RPSL Policy
@@ -32,7 +32,7 @@ Status of this Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on February 10, 2014.
+   This Internet-Draft will expire on February 15, 2014.
 
 Copyright Notice
 
@@ -52,7 +52,7 @@ Copyright Notice
 
 
 
-Snijders                Expires February 10, 2014               [Page 1]
+Snijders                Expires February 15, 2014               [Page 1]
 
 Internet-Draft         The via attributes in RPSL            August 2013
 
@@ -108,7 +108,7 @@ Table of Contents
 
 
 
-Snijders                Expires February 10, 2014               [Page 2]
+Snijders                Expires February 15, 2014               [Page 2]
 
 Internet-Draft         The via attributes in RPSL            August 2013
 
@@ -145,7 +145,7 @@ Internet-Draft         The via attributes in RPSL            August 2013
 
 3.  Background
 
-   The via keyword specifically benefits operators whom were assigned a
+   The via keyword specifically benefits operators who were assigned a
    32 bit AS Number and transit providers when participating in Multi-
    Lateral Peering Agreements facilitated by a Route Server.
 
@@ -154,7 +154,7 @@ Internet-Draft         The via attributes in RPSL            August 2013
    participants and the Route Server.  Because BGP Communities have a
    length of 32 bit, it is not possible to signal a 32 bit AS Number
    coupled with an action.  In practise this means Route Server
-   participants whom use a 32 bit AS Number cannot specifically be
+   participants who use a 32 bit AS Number cannot specifically be
    included or excluded during path distribution calculations on the
    Route Server unless a mapping system is applied.
 
@@ -164,7 +164,7 @@ Internet-Draft         The via attributes in RPSL            August 2013
 
 
 
-Snijders                Expires February 10, 2014               [Page 3]
+Snijders                Expires February 15, 2014               [Page 3]
 
 Internet-Draft         The via attributes in RPSL            August 2013
 
@@ -220,7 +220,7 @@ Internet-Draft         The via attributes in RPSL            August 2013
 
 
 
-Snijders                Expires February 10, 2014               [Page 4]
+Snijders                Expires February 15, 2014               [Page 4]
 
 Internet-Draft         The via attributes in RPSL            August 2013
 
@@ -255,7 +255,7 @@ Internet-Draft         The via attributes in RPSL            August 2013
                                  Figure 2
 
    In the above examples AS5580 and AS15562 are Route Server
-   participants.  AS4247483647 is a participant whom has been assigned a
+   participants.  AS4247483647 is a participant who has been assigned a
    32 bit AS Number.  AS6777 functions as a Route Server
    [I-D.ietf-idr-ix-bgp-route-server] and AS-SET AS5580:AS-ROUTESERVERS
    contains a list of Route Server AS Numbers.  AS-SET AS5580:AS-
@@ -276,7 +276,7 @@ Internet-Draft         The via attributes in RPSL            August 2013
 
 
 
-Snijders                Expires February 10, 2014               [Page 5]
+Snijders                Expires February 15, 2014               [Page 5]
 
 Internet-Draft         The via attributes in RPSL            August 2013
 
@@ -332,7 +332,7 @@ Internet-Draft         The via attributes in RPSL            August 2013
 
 
 
-Snijders                Expires February 10, 2014               [Page 6]
+Snijders                Expires February 15, 2014               [Page 6]
 
 Internet-Draft         The via attributes in RPSL            August 2013
 
@@ -388,7 +388,7 @@ Appendix A.  Grammar Rules
 
 
 
-Snijders                Expires February 10, 2014               [Page 7]
+Snijders                Expires February 15, 2014               [Page 7]
 
 Internet-Draft         The via attributes in RPSL            August 2013
 
@@ -444,7 +444,7 @@ Internet-Draft         The via attributes in RPSL            August 2013
 
 
 
-Snijders                Expires February 10, 2014               [Page 8]
+Snijders                Expires February 15, 2014               [Page 8]
 
 Internet-Draft         The via attributes in RPSL            August 2013
 
@@ -500,7 +500,7 @@ Appendix B.  Document Change Log
 
 
 
-Snijders                Expires February 10, 2014               [Page 9]
+Snijders                Expires February 15, 2014               [Page 9]
 
 Internet-Draft         The via attributes in RPSL            August 2013
 
@@ -556,5 +556,5 @@ Author's Address
 
 
 
-Snijders                Expires February 10, 2014              [Page 10]
+Snijders                Expires February 15, 2014              [Page 10]
 

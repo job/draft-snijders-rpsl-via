@@ -119,7 +119,7 @@ applied towards other participants.
     <section title="Background">
       <t>
 
-The via keyword specifically benefits operators whom were assigned
+The via keyword specifically benefits operators who were assigned
 a 32 bit AS Number and transit providers when participating in
 Multi-Lateral Peering Agreements facilitated by a Route Server. 
 
@@ -130,7 +130,7 @@ Often Route Server operators overload BGP Communities <xref target="RFC1997"
 />) to facilitate signalling of desired routing policy between the participants
 and the Route Server. Because BGP Communities have a length of 32 bit,
 it is not possible to signal a 32 bit AS Number coupled with an action.
-In practise this means Route Server participants whom use a 32 bit AS
+In practise this means Route Server participants who use a 32 bit AS
 Number cannot specifically be included or excluded during path
 distribution calculations on the Route Server unless a mapping system
 is applied. 
@@ -235,7 +235,7 @@ non-adjacent network.
       <t>
  
 In the above examples AS5580 and AS15562 are Route Server participants.
-AS4247483647 is a participant whom has been assigned a 32 bit AS Number.
+AS4247483647 is a participant who has been assigned a 32 bit AS Number.
 AS6777 functions as a Route Server <xref target="I-D.ietf-idr-ix-bgp-route-server" />
 and AS-SET AS5580:AS-ROUTESERVERS contains a list of Route Server AS Numbers.
 AS-SET AS5580:AS-CUSTOMERS contains a list of downstream transit customers from AS5580. 
