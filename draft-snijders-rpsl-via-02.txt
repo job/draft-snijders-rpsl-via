@@ -3,8 +3,8 @@
 
 Network Working Group                                        J. Snijders
 Internet-Draft                                        Atrato IP Networks
-Intended status: Informational                           August 14, 2013
-Expires: February 15, 2014
+Intended status: Informational                           August 16, 2013
+Expires: February 17, 2014
 
 
       The "import-via" and "export-via" attributes in RPSL Policy
@@ -32,7 +32,7 @@ Status of this Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on February 15, 2014.
+   This Internet-Draft will expire on February 17, 2014.
 
 Copyright Notice
 
@@ -52,7 +52,7 @@ Copyright Notice
 
 
 
-Snijders                Expires February 15, 2014               [Page 1]
+Snijders                Expires February 17, 2014               [Page 1]
 
 Internet-Draft         The via attributes in RPSL            August 2013
 
@@ -108,7 +108,7 @@ Table of Contents
 
 
 
-Snijders                Expires February 15, 2014               [Page 2]
+Snijders                Expires February 17, 2014               [Page 2]
 
 Internet-Draft         The via attributes in RPSL            August 2013
 
@@ -164,7 +164,7 @@ Internet-Draft         The via attributes in RPSL            August 2013
 
 
 
-Snijders                Expires February 15, 2014               [Page 3]
+Snijders                Expires February 17, 2014               [Page 3]
 
 Internet-Draft         The via attributes in RPSL            August 2013
 
@@ -220,7 +220,7 @@ Internet-Draft         The via attributes in RPSL            August 2013
 
 
 
-Snijders                Expires February 15, 2014               [Page 4]
+Snijders                Expires February 17, 2014               [Page 4]
 
 Internet-Draft         The via attributes in RPSL            August 2013
 
@@ -276,7 +276,7 @@ Internet-Draft         The via attributes in RPSL            August 2013
 
 
 
-Snijders                Expires February 15, 2014               [Page 5]
+Snijders                Expires February 17, 2014               [Page 5]
 
 Internet-Draft         The via attributes in RPSL            August 2013
 
@@ -295,7 +295,7 @@ Internet-Draft         The via attributes in RPSL            August 2013
    Consider the following example regarding ambiguity resolution.
 
     aut-num: AS5580
-    export:     to AS6777 195.69.144.255 to announce AS5580
+    export:     to AS6777 195.69.144.255 announce AS5580
     export-via: AS6777 195.69.144.255 to AS-AMS-IX-RS announce AS-ATRATO
 
                                  Figure 3
@@ -310,7 +310,7 @@ Internet-Draft         The via attributes in RPSL            August 2013
 
     aut-num: AS5580
     export-via: AS6777 195.69.144.255 to AS-AMS-IX-RS announce AS-ATRATO
-    export:     to AS6777 195.69.144.255 to announce AS5580
+    export:     to AS6777 195.69.144.255 announce AS5580
 
                                  Figure 4
 
@@ -332,13 +332,13 @@ Internet-Draft         The via attributes in RPSL            August 2013
 
 
 
-Snijders                Expires February 15, 2014               [Page 6]
+Snijders                Expires February 17, 2014               [Page 6]
 
 Internet-Draft         The via attributes in RPSL            August 2013
 
 
    his unparalleled support, Jeffrey Haas for providing historic
-   perspective and David Croft for nitpicking.
+   perspective, David Croft and Martin Pels for nitpicking.
 
 
 10.  References
@@ -388,7 +388,7 @@ Appendix A.  Grammar Rules
 
 
 
-Snijders                Expires February 15, 2014               [Page 7]
+Snijders                Expires February 17, 2014               [Page 7]
 
 Internet-Draft         The via attributes in RPSL            August 2013
 
@@ -444,7 +444,7 @@ Internet-Draft         The via attributes in RPSL            August 2013
 
 
 
-Snijders                Expires February 15, 2014               [Page 8]
+Snijders                Expires February 17, 2014               [Page 8]
 
 Internet-Draft         The via attributes in RPSL            August 2013
 
@@ -500,7 +500,7 @@ Appendix B.  Document Change Log
 
 
 
-Snijders                Expires February 15, 2014               [Page 9]
+Snijders                Expires February 17, 2014               [Page 9]
 
 Internet-Draft         The via attributes in RPSL            August 2013
 
@@ -556,5 +556,5 @@ Author's Address
 
 
 
-Snijders                Expires February 15, 2014              [Page 10]
+Snijders                Expires February 17, 2014              [Page 10]
 

@@ -272,7 +272,7 @@ corresponding to the first peering specification is used.
 <figure anchor="ambiguity">
 <artwork>
  aut-num: AS5580
- export:     to AS6777 195.69.144.255 to announce AS5580
+ export:     to AS6777 195.69.144.255 announce AS5580
  export-via: AS6777 195.69.144.255 to AS-AMS-IX-RS announce AS-ATRATO
 </artwork>
 </figure>
@@ -288,7 +288,7 @@ the operator should have specified:
 <artwork>
  aut-num: AS5580
  export-via: AS6777 195.69.144.255 to AS-AMS-IX-RS announce AS-ATRATO
- export:     to AS6777 195.69.144.255 to announce AS5580
+ export:     to AS6777 195.69.144.255 announce AS5580
 </artwork>
 </figure>
 
@@ -316,8 +316,8 @@ This document has no IANA actions.
 
 The authors would like to thank Remko van Mook for confirming that "via"
 is a better keyword than 'through' or 'thru', Nick Hilliard for his 
-unparalleled support, Jeffrey Haas for providing historic perspective and
-David Croft for nitpicking.
+unparalleled support, Jeffrey Haas for providing historic perspective, 
+David Croft and Martin Pels for nitpicking.
 
       </t>
     </section>
