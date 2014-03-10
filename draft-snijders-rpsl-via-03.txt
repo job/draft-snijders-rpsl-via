@@ -1,15 +1,16 @@
 
 
 
+
 Network Working Group                                        J. Snijders
-Internet-Draft                                        Atrato IP Networks
-Intended status: Informational                           August 16, 2013
-Expires: February 17, 2014
+Internet-Draft                                         Hibernia Networks
+Intended status: Informational                               August 2013
+Expires: February 2, 2014
 
 
       The "import-via" and "export-via" attributes in RPSL Policy
                              Specifications
-                       draft-snijders-rpsl-via-02
+                       draft-snijders-rpsl-via-03
 
 Abstract
 
@@ -17,7 +18,7 @@ Abstract
    be used in RPSL policy specifications to publish desired routing
    policy regarding non-adjacent networks.
 
-Status of this Memo
+Status of This Memo
 
    This Internet-Draft is submitted in full conformance with the
    provisions of BCP 78 and BCP 79.
@@ -32,7 +33,7 @@ Status of this Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on February 17, 2014.
+   This Internet-Draft will expire on February 2, 2014.
 
 Copyright Notice
 
@@ -52,66 +53,28 @@ Copyright Notice
 
 
 
-Snijders                Expires February 17, 2014               [Page 1]
+Snijders                Expires February 2, 2014                [Page 1]
 
 Internet-Draft         The via attributes in RPSL            August 2013
 
 
 Table of Contents
 
-   1.  Introduction . . . . . . . . . . . . . . . . . . . . . . . . .  3
-   2.  Notational Conventions . . . . . . . . . . . . . . . . . . . .  3
-   3.  Background . . . . . . . . . . . . . . . . . . . . . . . . . .  3
-   4.  Import and Export Via Syntax and Semantics . . . . . . . . . .  4
-   5.  Example Usage  . . . . . . . . . . . . . . . . . . . . . . . .  5
-   6.  Ambiguity Resolution . . . . . . . . . . . . . . . . . . . . .  6
-   7.  Security Considerations  . . . . . . . . . . . . . . . . . . .  6
-   8.  IANA Considerations  . . . . . . . . . . . . . . . . . . . . .  6
-   9.  Acknowledgments  . . . . . . . . . . . . . . . . . . . . . . .  6
-   10. References . . . . . . . . . . . . . . . . . . . . . . . . . .  7
-     10.1.  Normative References  . . . . . . . . . . . . . . . . . .  7
-     10.2.  Informative References  . . . . . . . . . . . . . . . . .  7
-   Appendix A.  Grammar Rules . . . . . . . . . . . . . . . . . . . .  7
-   Appendix B.  Document Change Log . . . . . . . . . . . . . . . . .  9
-   Author's Address . . . . . . . . . . . . . . . . . . . . . . . . . 10
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-Snijders                Expires February 17, 2014               [Page 2]
-
-Internet-Draft         The via attributes in RPSL            August 2013
-
+   1.  Introduction  . . . . . . . . . . . . . . . . . . . . . . . .   2
+   2.  Notational Conventions  . . . . . . . . . . . . . . . . . . .   2
+   3.  Background  . . . . . . . . . . . . . . . . . . . . . . . . .   3
+   4.  Import and Export Via Syntax and Semantics  . . . . . . . . .   3
+   5.  Example Usage . . . . . . . . . . . . . . . . . . . . . . . .   4
+   6.  Ambiguity Resolution  . . . . . . . . . . . . . . . . . . . .   5
+   7.  Security Considerations . . . . . . . . . . . . . . . . . . .   6
+   8.  IANA Considerations . . . . . . . . . . . . . . . . . . . . .   6
+   9.  Acknowledgments . . . . . . . . . . . . . . . . . . . . . . .   6
+   10. References  . . . . . . . . . . . . . . . . . . . . . . . . .   6
+     10.1.  Normative References . . . . . . . . . . . . . . . . . .   6
+     10.2.  Informative References . . . . . . . . . . . . . . . . .   7
+   Appendix A.  Grammar Rules  . . . . . . . . . . . . . . . . . . .   7
+   Appendix B.  Document Change Log  . . . . . . . . . . . . . . . .   9
+   Author's Address  . . . . . . . . . . . . . . . . . . . . . . . .   9
 
 1.  Introduction
 
@@ -125,7 +88,7 @@ Internet-Draft         The via attributes in RPSL            August 2013
 
    o  Provide a way for network (A) to describe what an adjacent network
       (B) could use as routing policy towards its adjacent networks (C,
-      D, E ..  N).
+      D, E .. N).
 
    o  The extension should be backward compatible with minimal impact on
       existing tools and processes, following Section 10.2 of [RFC2622].
@@ -135,13 +98,20 @@ Internet-Draft         The via attributes in RPSL            August 2013
    Peering services to inform the intermediate autonomous system what
    routing policy should be applied towards other participants.
 
-
 2.  Notational Conventions
 
    The key words "MUST", "MUST NOT", "REQUIRED", "SHALL", "SHALL NOT",
    "SHOULD", "SHOULD NOT", "RECOMMENDED", "NOT RECOMMENDED", "MAY", and
    "OPTIONAL" in this document are to be interpreted as described in
    [RFC2119].
+
+
+
+
+
+Snijders                Expires February 2, 2014                [Page 2]
+
+Internet-Draft         The via attributes in RPSL            August 2013
 
 
 3.  Background
@@ -161,21 +131,12 @@ Internet-Draft         The via attributes in RPSL            August 2013
 
    Transit providers often have a routing policy which states that the
    transit provider does not want to exchange paths with its downstream
-
-
-
-Snijders                Expires February 17, 2014               [Page 3]
-
-Internet-Draft         The via attributes in RPSL            August 2013
-
-
    customers through Route Servers via public Internet Exchanges.  The
    import-via and export-via attributes allow transit providers to
    participate in Multi-Lateral Peering services while instructing Route
    Server operators through a simple routing policy specification that
    paths should not be distributed to downstream customers and reducing
    the likelihood of Path Hiding on the Route Server.
-
 
 4.  Import and Export Via Syntax and Semantics
 
@@ -186,6 +147,28 @@ Internet-Draft         The via attributes in RPSL            August 2013
       export-via:
 
    The syntax for these attributes is as follows:
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Snijders                Expires February 2, 2014                [Page 3]
+
+Internet-Draft         The via attributes in RPSL            August 2013
+
 
    Attribute  Value                                         Type
    import-via [protocol <protocol-1>] [into <protocol-2>]   optional,
@@ -217,21 +200,31 @@ Internet-Draft         The via attributes in RPSL            August 2013
    defined to indicate the common AS between two non-adjacent networks.
 
    In the above example <peering-1> and <peering-3> are directly
-
-
-
-Snijders                Expires February 17, 2014               [Page 4]
-
-Internet-Draft         The via attributes in RPSL            August 2013
-
-
    adjacent networks, for instance a Multi-Lateral Peering service.
    <peering-2> is a non-adjacent network.
-
 
 5.  Example Usage
 
    Putting it all together:
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Snijders                Expires February 2, 2014                [Page 4]
+
+Internet-Draft         The via attributes in RPSL            August 2013
+
 
       aut-num: AS5580
       import-via: AS6777
@@ -273,14 +266,6 @@ Internet-Draft         The via attributes in RPSL            August 2013
    informed which NLRI's should not be considered in the best path
    selection process.
 
-
-
-
-Snijders                Expires February 17, 2014               [Page 5]
-
-Internet-Draft         The via attributes in RPSL            August 2013
-
-
 6.  Ambiguity Resolution
 
    The same peering can be covered by more than one "via" policy
@@ -289,6 +274,14 @@ Internet-Draft         The via attributes in RPSL            August 2013
    policy) and the previously defined IPv4 unicast policy attributes.
    In these cases, implementations should follow the specification-order
    rule as defined in Section 6.4 of RFC 2622 [1].  Operators should
+
+
+
+Snijders                Expires February 2, 2014                [Page 5]
+
+Internet-Draft         The via attributes in RPSL            August 2013
+
+
    take note that in order to break ambiguity, the action corresponding
    to the first peering specification is used.
 
@@ -314,32 +307,20 @@ Internet-Draft         The via attributes in RPSL            August 2013
 
                                  Figure 4
 
-
 7.  Security Considerations
 
    There are no security considerations for this specification.
-
 
 8.  IANA Considerations
 
    This document has no IANA actions.
 
-
 9.  Acknowledgments
 
-   The authors would like to thank Remko van Mook for confirming that
+   The author would like to thank Remko van Mook for confirming that
    "via" is a better keyword than 'through' or 'thru', Nick Hilliard for
-
-
-
-Snijders                Expires February 17, 2014               [Page 6]
-
-Internet-Draft         The via attributes in RPSL            August 2013
-
-
    his unparalleled support, Jeffrey Haas for providing historic
    perspective, David Croft and Martin Pels for nitpicking.
-
 
 10.  References
 
@@ -347,6 +328,15 @@ Internet-Draft         The via attributes in RPSL            August 2013
 
    [RFC1997]  Chandrasekeran, R., Traina, P., and T. Li, "BGP
               Communities Attribute", RFC 1997, August 1996.
+
+
+
+
+
+Snijders                Expires February 2, 2014                [Page 6]
+
+Internet-Draft         The via attributes in RPSL            August 2013
+
 
    [RFC2119]  Bradner, S., "Key words for use in RFCs to Indicate
               Requirement Levels", BCP 14, RFC 2119, March 1997.
@@ -364,18 +354,14 @@ Internet-Draft         The via attributes in RPSL            August 2013
 
    [I-D.ietf-idr-ix-bgp-route-server]
               Jasinska, E., Hilliard, N., Raszuk, R., and N. Bakker,
-              "Internet Exchange Route Server",
-              draft-ietf-idr-ix-bgp-route-server-02 (work in progress),
-              February 2013.
-
+              "Internet Exchange Route Server", draft-ietf-idr-ix-bgp-
+              route-server-02 (work in progress), February 2013.
 
 Appendix A.  Grammar Rules
 
-   Note that only relevant grammar rules have been listed.  An example
-   implementation based on IRRd 2.3.10 is available at
-   <https://github.com/job/irrd>, and an updated version of the RIPE
-   Database whois code is available at: <https://github.com/job/whois>.
-
+   Note that only 'via' specific grammar rules have been listed.
+   Currently two routing registry whois daemons have support for the
+   'via' attributes: IRRd 3.0.7 and RIPE Whois Server 1.71.
 
 
    %type <string> line_autnum
@@ -385,14 +371,6 @@ Appendix A.  Grammar Rules
 
    %token T_IV_KEY //*** import-via: ***
    %token T_EV_KEY //*** export-via: ***
-
-
-
-Snijders                Expires February 17, 2014               [Page 7]
-
-Internet-Draft         The via attributes in RPSL            August 2013
-
-
    %token T_AFI T_PROTOCOL T_WORD T_INTO T_EXCEPT T_REFINE
    %token T_ACCEPT T_ANNOUNCE T_TO T_FROM T_PRNGNAME
 
@@ -408,6 +386,14 @@ Internet-Draft         The via attributes in RPSL            August 2013
    attr_export_via: T_EV_KEY attr_export_syntax
 
    attr_export_syntax: opt_protocol_from opt_protocol_into export_simple
+
+
+
+Snijders                Expires February 2, 2014                [Page 7]
+
+Internet-Draft         The via attributes in RPSL            August 2013
+
+
        | opt_protocol_from opt_protocol_into afi_export_exp
 
    opt_afi_specification:
@@ -442,13 +428,6 @@ Internet-Draft         The via attributes in RPSL            August 2013
    import_term: import_factor ';'
        | '{' import_factor_list '}'
 
-
-
-Snijders                Expires February 17, 2014               [Page 8]
-
-Internet-Draft         The via attributes in RPSL            August 2013
-
-
    export_exp: export_term
        | export_term T_EXCEPT afi_export_exp
        | export_term T_REFINE afi_export_exp
@@ -462,6 +441,14 @@ Internet-Draft         The via attributes in RPSL            August 2013
    import_factor: import_peering_action_list T_ACCEPT filter
 
    export_factor: export_peering_action_list T_ANNOUNCE filter
+
+
+
+
+Snijders                Expires February 2, 2014                [Page 8]
+
+Internet-Draft         The via attributes in RPSL            August 2013
+
 
    peering: as_expression opt_router_expression \
                opt_router_expression_with_at
@@ -478,7 +465,6 @@ Internet-Draft         The via attributes in RPSL            August 2013
 
 
                                  Figure 5
-
 
 Appendix B.  Document Change Log
 
@@ -497,64 +483,22 @@ Appendix B.  Document Change Log
 
        B.  Added section about Ambiguity Resolution.
 
+   4.  Changes to draft-snijders-rpsl-via-03.txt
 
-
-
-Snijders                Expires February 17, 2014               [Page 9]
-
-Internet-Draft         The via attributes in RPSL            August 2013
-
+       A.  Updated current IRR implementations.
 
 Author's Address
 
    Job Snijders
-   Atrato IP Networks
+   Hibernia Networks
    Tupolevlaan 103a
    Schiphol-Rijk  1119 PA
    NL
 
-   Email: job.snijders@atrato.com
+   Email: job.snijders@hibernianetworks.com
 
 
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-Snijders                Expires February 17, 2014              [Page 10]
-
+Snijders                Expires February 2, 2014                [Page 9]

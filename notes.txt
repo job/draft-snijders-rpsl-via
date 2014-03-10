@@ -1,0 +1,24 @@
+[15:38] <job> hi
+[21:12] <job> hi
+[21:12] <nick-2128-p> ohai
+[21:13] <job> i find it hard to part ways like this
+[21:13] <job> in essence i expected our partnership to be one of the pillars of making it through the whole clown circus
+[21:13] <job> could you do me a small favor, and read it once? :)
+[21:14] <job> tell me what is missing or wrong, and after that i'll look for another guy to help
+[21:37] <job> if 1 review is also unpossible, feel free to tell me
+[21:46] <nick-2128-p> the general idea is ok
+[21:47] <nick-2128-p> it possibly needs some set theory done regarding how the grammar works
+[21:47] <nick-2128-p> needs worked examples
+[21:47] <nick-2128-p> which are both reproducable and provable
+[21:48] <nick-2128-p> needs less about bgp community-based filtering
+[21:48] <nick-2128-p> needs some formalities about precedence
+[21:49] <nick-2128-p> i.e. best match wins, that sort of thing
+[21:49] <job> but that has already been described in another rfc
+[21:50] <nick-2128-p> re: community filtering, it needs to say that the problem 
+    is to provide a per-client based routing policy via an intermediate system, 
+    and that existing methods which use bgp communities break with 32 bit asns
+[21:50] <nick-2128-p> very simply - there's too much detail there no
+
+21:47:41 dunamis | ik zag't ja
+21:48:06 dunamis | ik snap't niet
+21:48:06 dunamis | "Provide a way to describe what an adjacent network could use as routing policy towards its adjacent networks.

@@ -23,7 +23,7 @@
 <!-- keep one blank line between list items -->
 <!-- end of list of popular I-D processing instructions -->
 <rfc category="info"
-     docName="draft-snijders-rpsl-via-02"
+     docName="draft-snijders-rpsl-via-03"
      ipr="trust200902"
      obsoletes=""
      updates=""
@@ -41,7 +41,7 @@
     </title>
 
     <author initials="J" surname="Snijders" fullname="Job Snijders">
-      <organization>Atrato IP Networks</organization>
+      <organization>Hibernia Networks</organization>
       <address>
         <postal>
           <street>Tupolevlaan 103a</street>
@@ -49,7 +49,7 @@
           <code>1119 PA</code>
           <country>NL</country>
         </postal>
-        <email>job.snijders@atrato.com</email>
+        <email>job.snijders@hibernianetworks.com</email>
       </address>
     </author>
 
@@ -314,7 +314,7 @@ This document has no IANA actions.
     <section title="Acknowledgments">
       <t>
 
-The authors would like to thank Remko van Mook for confirming that "via"
+The author would like to thank Remko van Mook for confirming that "via"
 is a better keyword than 'through' or 'thru', Nick Hilliard for his 
 unparalleled support, Jeffrey Haas for providing historic perspective, 
 David Croft and Martin Pels for nitpicking.
@@ -339,13 +339,11 @@ David Croft and Martin Pels for nitpicking.
 
     <section title="Grammar Rules">
       <t>
-      Note that only relevant grammar rules have been listed. An example implementation
-      based on IRRd 2.3.10 is available at &lt;https://github.com/job/irrd&gt;,
-      and an updated version of the RIPE Database whois code is available at:
-      &lt;https://github.com/job/whois&gt;.
-      </t>
-      <t>
-    <figure anchor="gram_syntax">
+      Note that only 'via' specific grammar rules have been listed. Currently
+      two routing registry whois daemons have support for the 'via' attributes:
+      IRRd 3.0.7 and RIPE Whois Server 1.71.  </t>
+  <t>
+      <figure anchor="gram_syntax">
         <artwork>
 
 %type &lt;string&gt; line_autnum
@@ -457,6 +455,13 @@ export_peering_action_list: peering T_TO peering opt_action
         <t>Added section about Ambiguity Resolution.</t>
         </list>
     </t>
+
+    <t>Changes to draft-snijders-rpsl-via-03.txt
+    <list style="letters">
+        <t>Updated current IRR implementations.</t>
+        </list>
+    </t>
+
 
 </list>
 </t>
