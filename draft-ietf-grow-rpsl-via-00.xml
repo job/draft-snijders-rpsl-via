@@ -22,11 +22,11 @@
 <?rfc subcompact="no" ?>
 <!-- keep one blank line between list items -->
 <!-- end of list of popular I-D processing instructions -->
-<rfc category="info"
-     docName="draft-snijders-rpsl-via-03"
+<rfc category="std"
+     docName="draft-ietf-grow-rpsl-via-00"
      ipr="trust200902"
      obsoletes=""
-     updates=""
+     updates="4012"
      submissionType="IETF"
      xml:lang="en">
   <!-- category values: std, bcp, info, exp, and historic
@@ -41,19 +41,19 @@
     </title>
 
     <author initials="J" surname="Snijders" fullname="Job Snijders">
-      <organization>Hibernia Networks</organization>
+      <organization>Independent</organization>
       <address>
         <postal>
-          <street>Tupolevlaan 103a</street>
-          <city>Schiphol-Rijk</city>
-          <code>1119 PA</code>
+          <street>Theodorus Majofskistraat 100</street>
+          <city>Amsterdam</city>
+          <code>1065 SZ</code>
           <country>NL</country>
         </postal>
-        <email>job.snijders@hibernianetworks.com</email>
+        <email>job@instituut.net</email>
       </address>
     </author>
 
-    <date year="2013" month="August"/>
+    <date year="2014" month="May"/>
 
     <abstract>
       <t>
@@ -210,41 +210,41 @@ non-adjacent network.
         <figure anchor="putting_it_all_together">
           <preamble>Putting it all together:</preamble>
           <artwork>
-   aut-num: AS5580
+   aut-num: AS15562
    import-via: AS6777
                 from AS15562
                 action pref = 2;
                 accept AS-SNIJDERS
    export-via: AS6777
-                to AS15562 action community.={5580:40};
-                announce AS-ATRATO
-   import-via: AS5580:AS-ROUTESERVERS
-                from AS5580:AS-CUSTOMERS
+                to AS15562 action community.={15562:40};
+                announce AS-SNIJDERS
+   import-via: AS15562:AS-ROUTESERVERS
+                from AS15562:AS-CUSTOMERS
                 accept NOT ANY
-   export-via: AS5580:AS-ROUTESERVERS
-                to AS5580:AS-CUSTOMERS announce NOT ANY
+   export-via: AS15562:AS-ROUTESERVERS
+                to AS15562:AS-CUSTOMERS announce NOT ANY
    import-via: AS6777
                 from AS4247483647
                 accept AS4247483647
    export-via: AS6777
                 to AS4247483647 action community.={5580:40};
-                announce AS-ATRATO
+                announce AS-SNIJDERS
           </artwork>
         </figure>
       </t>
       <t>
  
-In the above examples AS5580 and AS15562 are Route Server participants.
+In the above examples AS15562 and AS15562 are Route Server participants.
 AS4247483647 is a participant who has been assigned a 32 bit AS Number.
 AS6777 functions as a Route Server <xref target="I-D.ietf-idr-ix-bgp-route-server" />
-and AS-SET AS5580:AS-ROUTESERVERS contains a list of Route Server AS Numbers.
-AS-SET AS5580:AS-CUSTOMERS contains a list of downstream transit customers from AS5580. 
+and AS-SET AS15562:AS-ROUTESERVERS contains a list of Route Server AS Numbers.
+AS-SET AS15562:AS-CUSTOMERS contains a list of downstream transit customers from AS15562. 
     </t>
     <t>
 The intention of the above policy would be to enable the exchange of NLRI's
 through AS6777 with two parties: AS15562 and AS4247483647, yet prevent the
-Route Server from distributing NLRI's announced by AS5580 towards customers of
-said network. Publishing the policy that AS5580 will not accept customer
+Route Server from distributing NLRI's announced by AS15562 towards customers of
+said network. Publishing the policy that AS15562 will not accept customer
 routes through the Route Server can help counteract the "path hiding" phenomenon
 as described in Section 2.3.1 of <xref target="I-D.ietf-idr-ix-bgp-route-server" />,
 as the Route Server now is informed which NLRI's should not be considered in
@@ -271,24 +271,24 @@ corresponding to the first peering specification is used.
 
 <figure anchor="ambiguity">
 <artwork>
- aut-num: AS5580
- export:     to AS6777 195.69.144.255 announce AS5580
- export-via: AS6777 195.69.144.255 to AS-AMS-IX-RS announce AS-ATRATO
+ aut-num: AS15562
+ export:     to AS6777 195.69.144.255 announce AS15562
+ export-via: AS6777 195.69.144.255 to AS-AMS-IX-RS announce AS-SNIJDERS
 </artwork>
 </figure>
 
 As both policy specifications cover the same peering with AS6777,
 specification-order rule is used and Route Server AS6777 195.69.144.255
-should only accept AS5580, instead of AS-ATRATO, even though the export-via
+should only accept AS15562, instead of AS-SNIJDERS, even though the export-via
 specification is more specific. If the intended policy was to announce all
-routes which can be resolved through AS-ATRATO on this particular peering,
+routes which can be resolved through AS-SNIJDERS on this particular peering,
 the operator should have specified:
 
 <figure anchor="ambiguity2">
 <artwork>
- aut-num: AS5580
- export-via: AS6777 195.69.144.255 to AS-AMS-IX-RS announce AS-ATRATO
- export:     to AS6777 195.69.144.255 announce AS5580
+ aut-num: AS15562
+ export-via: AS6777 195.69.144.255 to AS-AMS-IX-RS announce AS-SNIJDERS
+ export:     to AS6777 195.69.144.255 announce AS15562
 </artwork>
 </figure>
 
@@ -351,8 +351,8 @@ David Croft and Martin Pels for nitpicking.
 %type &lt;string&gt; attr_import_via
 %type &lt;string&gt; attr_export_via
 
-%token T_IV_KEY //*** import-via: ***
-%token T_EV_KEY //*** export-via: ***
+%token T_IV_KEY // *** import-via: ***
+%token T_EV_KEY // *** export-via: ***
 %token T_AFI T_PROTOCOL T_WORD T_INTO T_EXCEPT T_REFINE
 %token T_ACCEPT T_ANNOUNCE T_TO T_FROM T_PRNGNAME
 
@@ -416,8 +416,7 @@ import_factor: import_peering_action_list T_ACCEPT filter
 
 export_factor: export_peering_action_list T_ANNOUNCE filter
 
-peering: as_expression opt_router_expression \
-            opt_router_expression_with_at
+peering: as_expression opt_router_expression opt_router_expression_with_at
     | T_PRNGNAME 
 
 // Below are two grammar rules that actually differ

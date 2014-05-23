@@ -1,4 +1,4 @@
 all:
-	XML_LIBRARY=~/source/refs/rfc:~/source/refs/id xml2rfc draft-snijders-rpsl-via-03.xml
+	XML_LIBRARY=~/source/refs/rfc:~/source/refs/id xml2rfc draft-ietf-grow-rpsl-via-00.xml
 clean:
-	rm draft-snijders-rpsl-via-03.txt
+	rm draft-ietf-grow-rpsl-via-00.txt
