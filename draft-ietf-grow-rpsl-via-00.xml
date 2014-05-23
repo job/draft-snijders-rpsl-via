@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="us-ascii"?>
-<!DOCTYPE rfc PUBLIC '' "http://xml.resource.org/authoring/rfc2629.dtd"[
-<!ENTITY RFC2119 PUBLIC '' "http://xml.resource.org/public/rfc/bibxml/reference.RFC.2119.xml">
-<!ENTITY RFC2622 PUBLIC '' "http://xml.resource.org/public/rfc/bibxml/reference.RFC.2622.xml">
-<!ENTITY RFC4012 PUBLIC '' "http://xml.resource.org/public/rfc/bibxml/reference.RFC.4012.xml">
+<!DOCTYPE rfc PUBLIC '' "http://www.w3.org/2008/xmlsec/Drafts/algorithms-rfc/rfc2629.dtd"[
+<!ENTITY RFC2119 PUBLIC '' "http://bitworking.org/rfc/reference.RFC.2119.xml">
+<!ENTITY RFC2622 PUBLIC '' "http://bitworking.org/rfc/reference.RFC.2622.xml">
+<!ENTITY RFC4012 PUBLIC '' "http://bitworking.org/rfc/reference.RFC.4012.xml">
 ]>
 <?xml-stylesheet type="text/xsl" href="rfc2629.xslt" ?>
 <?rfc strict="yes" ?>
@@ -126,8 +126,8 @@ Multi-Lateral Peering Agreements facilitated by a Route Server.
       </t>
       <t>
 
-Often Route Server operators overload BGP Communities <xref target="RFC1997"
-/>) to facilitate signaling of desired routing policy between the participants
+Often Route Server operators overload BGP Communities <xref target="RFC1997"/>)
+to facilitate signaling of desired routing policy between the participants
 and the Route Server. Because BGP Communities have a length of 32 bit,
 it is not possible to signal a 32 bit AS Number coupled with an action.
 In practise this means Route Server participants who use a 32 bit AS
