@@ -1,0 +1,18 @@
+REGISTRIES:
+    
+    RIPE - approached by job
+    RADB - approached by job
+   APNIC - will follow if RIPE merges the code
+   
+   ALTDB - not maintained?
+        -> IRRd 2.3.10
+   
+   ARIN - no clue who to talk to, and what software they use
+        -> 3 year old RIPE Whois Server (pre-java)
+    
+   APNIC - RIPE Whois Server (java edition)
+
+   LACNIC - no clue who to talk to, and what software they use
+
+others?
+

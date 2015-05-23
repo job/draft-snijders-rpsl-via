@@ -70,11 +70,12 @@ Table of Contents
    8.  IANA Considerations . . . . . . . . . . . . . . . . . . . . .   6
    9.  Acknowledgments . . . . . . . . . . . . . . . . . . . . . . .   6
    10. References  . . . . . . . . . . . . . . . . . . . . . . . . .   6
-     10.1.  Normative References . . . . . . . . . . . . . . . . . .   6
+     10.1.  Normative References . . . . . . . . . . . . . . . . . .   7
      10.2.  Informative References . . . . . . . . . . . . . . . . .   7
    Appendix A.  Grammar Rules  . . . . . . . . . . . . . . . . . . .   7
-   Appendix B.  Document Change Log  . . . . . . . . . . . . . . . .   9
-   Author's Address  . . . . . . . . . . . . . . . . . . . . . . . .   9
+   Appendix B.  TODO . . . . . . . . . . . . . . . . . . . . . . . .   9
+   Appendix C.  Document Change Log  . . . . . . . . . . . . . . . .   9
+   Author's Address  . . . . . . . . . . . . . . . . . . . . . . . .  10
 
 1.  Introduction
 
@@ -104,7 +105,6 @@ Table of Contents
    "SHOULD", "SHOULD NOT", "RECOMMENDED", "NOT RECOMMENDED", "MAY", and
    "OPTIONAL" in this document are to be interpreted as described in
    [RFC2119].
-
 
 
 
@@ -146,7 +146,7 @@ Internet-Draft         The via attributes in RPSL               May 2015
 
       export-via:
 
-   The syntax for these attributes is as follows:
+
 
 
 
@@ -169,6 +169,8 @@ Snijders                Expires November 24, 2015               [Page 3]
 
 Internet-Draft         The via attributes in RPSL               May 2015
 
+
+   The syntax for these attributes is as follows:
 
    Attribute  Value                                         Type
    import-via [protocol <protocol-1>] [into <protocol-2>]   optional,
@@ -205,8 +207,6 @@ Internet-Draft         The via attributes in RPSL               May 2015
 
 5.  Example Usage
 
-   Putting it all together:
-
 
 
 
@@ -226,25 +226,27 @@ Snijders                Expires November 24, 2015               [Page 4]
 Internet-Draft         The via attributes in RPSL               May 2015
 
 
-   aut-num: AS15562
-   import-via: AS6777
-                from AS15562
-                action pref = 2;
-                accept AS-SNIJDERS
-   export-via: AS6777
-                to AS15562 action community.={15562:40};
-                announce AS-SNIJDERS
-   import-via: AS15562:AS-ROUTESERVERS
-                from AS15562:AS-CUSTOMERS
-                accept NOT ANY
-   export-via: AS15562:AS-ROUTESERVERS
-                to AS15562:AS-CUSTOMERS announce NOT ANY
-   import-via: AS6777
-                from AS4247483647
-                accept AS4247483647
-   export-via: AS6777
-                to AS4247483647 action community.={15562:40};
-                announce AS-SNIJDERS
+   Putting it all together:
+
+      aut-num: AS15562
+      import-via: AS6777
+                   from AS15562
+                   action pref = 2;
+                   accept AS-SNIJDERS
+      export-via: AS6777
+                   to AS15562 action community.={15562:40};
+                   announce AS-SNIJDERS
+      import-via: AS15562:AS-ROUTESERVERS
+                   from AS15562:AS-CUSTOMERS
+                   accept NOT ANY
+      export-via: AS15562:AS-ROUTESERVERS
+                   to AS15562:AS-CUSTOMERS announce NOT ANY
+      import-via: AS6777
+                   from AS4247483647
+                   accept AS4247483647
+      export-via: AS6777
+                   to AS4247483647 action community.={15562:40};
+                   announce AS-SNIJDERS
 
                                  Figure 2
 
@@ -272,8 +274,6 @@ Internet-Draft         The via attributes in RPSL               May 2015
    attribute or by a combination of multi-protocol policy attributes, or
    multi-protocol policy attributes (when specifying IPv4 unicast
    policy) and the previously defined IPv4 unicast policy attributes.
-   In these cases, implementations should follow the specification-order
-   rule as defined in Section 6.4 of RFC 2622 [1].  Operators should
 
 
 
@@ -282,14 +282,16 @@ Snijders                Expires November 24, 2015               [Page 5]
 Internet-Draft         The via attributes in RPSL               May 2015
 
 
+   In these cases, implementations should follow the specification-order
+   rule as defined in Section 6.4 of RFC 2622 [1].  Operators should
    take note that in order to break ambiguity, the action corresponding
    to the first peering specification is used.
 
    Consider the following example regarding ambiguity resolution.
 
-   aut-num: AS15562
-   export:     to AS6777 195.69.144.255 announce AS15562
-   export-via: AS6777 195.69.144.255 to AS-AMS-IX-RS announce AS-SNIJDERS
+  aut-num: AS15562
+  export:     to AS6777 195.69.144.255 announce AS15562
+  export-via: AS6777 195.69.144.255 to AS-AMS-IX-RS announce AS-SNIJDERS
 
                                  Figure 3
 
@@ -301,9 +303,9 @@ Internet-Draft         The via attributes in RPSL               May 2015
    through AS-SNIJDERS on this particular peering, the operator should
    have specified:
 
-   aut-num: AS15562
-   export-via: AS6777 195.69.144.255 to AS-AMS-IX-RS announce AS-SNIJDERS
-   export:     to AS6777 195.69.144.255 announce AS15562
+  aut-num: AS15562
+  export-via: AS6777 195.69.144.255 to AS-AMS-IX-RS announce AS-SNIJDERS
+  export:     to AS6777 195.69.144.255 announce AS15562
 
                                  Figure 4
 
@@ -324,10 +326,8 @@ Internet-Draft         The via attributes in RPSL               May 2015
 
 10.  References
 
-10.1.  Normative References
 
-   [RFC1997]  Chandrasekeran, R., Traina, P., and T. Li, "BGP
-              Communities Attribute", RFC 1997, August 1996.
+
 
 
 
@@ -337,6 +337,11 @@ Snijders                Expires November 24, 2015               [Page 6]
 
 Internet-Draft         The via attributes in RPSL               May 2015
 
+
+10.1.  Normative References
+
+   [RFC1997]  Chandrasekeran, R., Traina, P., and T. Li, "BGP
+              Communities Attribute", RFC 1997, August 1996.
 
    [RFC2119]  Bradner, S., "Key words for use in RFCs to Indicate
               Requirement Levels", BCP 14, RFC 2119, March 1997.
@@ -355,7 +360,7 @@ Internet-Draft         The via attributes in RPSL               May 2015
    [I-D.ietf-idr-ix-bgp-route-server]
               Jasinska, E., Hilliard, N., Raszuk, R., and N. Bakker,
               "Internet Exchange Route Server", draft-ietf-idr-ix-bgp-
-              route-server-06 (work in progress), December 2014.
+              route-server-02 (work in progress), February 2013.
 
 Appendix A.  Grammar Rules
 
@@ -364,28 +369,23 @@ Appendix A.  Grammar Rules
    'via' attributes: IRRd 3.0.7 and RIPE Whois Server 1.71.
 
 
-   %type <string> line_autnum
-   %type <string> attr_autnum
-   %type <string> attr_import_via
-   %type <string> attr_export_via
+%type <string> line_autnum
+%type <string> attr_autnum
+%type <string> attr_import_via
+%type <string> attr_export_via
 
-   %token T_IV_KEY // *** import-via: ***
-   %token T_EV_KEY // *** export-via: ***
-   %token T_AFI T_PROTOCOL T_WORD T_INTO T_EXCEPT T_REFINE
-   %token T_ACCEPT T_ANNOUNCE T_TO T_FROM T_PRNGNAME
+%token T_IV_KEY // *** import-via: ***
+%token T_EV_KEY // *** export-via: ***
+%token T_AFI T_PROTOCOL T_WORD T_INTO T_EXCEPT T_REFINE
+%token T_ACCEPT T_ANNOUNCE T_TO T_FROM T_PRNGNAME
 
-   line_autnum: attr_autnum
-       | attr_import_via
-       | attr_export_via
+line_autnum: attr_autnum
+    | attr_import_via
+    | attr_export_via
 
-   attr_import_via: T_IV_KEY attr_import_syntax
+attr_import_via: T_IV_KEY attr_import_syntax
 
-   attr_import_syntax: opt_protocol_from opt_protocol_into import_simple
-       | opt_protocol_from opt_protocol_into afi_import_exp
-
-   attr_export_via: T_EV_KEY attr_export_syntax
-
-   attr_export_syntax: opt_protocol_from opt_protocol_into export_simple
+attr_import_syntax: opt_protocol_from opt_protocol_into import_simple
 
 
 
@@ -394,54 +394,54 @@ Snijders                Expires November 24, 2015               [Page 7]
 Internet-Draft         The via attributes in RPSL               May 2015
 
 
-       | opt_protocol_from opt_protocol_into afi_export_exp
+    | opt_protocol_from opt_protocol_into afi_import_exp
 
-   opt_afi_specification:
-       | T_AFI afi_list
+attr_export_via: T_EV_KEY attr_export_syntax
 
-   afi_list: afi_token
-       | afi_list ',' afi_token
+attr_export_syntax: opt_protocol_from opt_protocol_into export_simple
+    | opt_protocol_from opt_protocol_into afi_export_exp
 
-   afi_token: afi_name
+opt_afi_specification:
+    | T_AFI afi_list
 
-   opt_protocol_from:
-       | T_PROTOCOL T_WORD
+afi_list: afi_token
+    | afi_list ',' afi_token
 
-   opt_protocol_into:
-       | T_INTO T_WORD
+afi_token: afi_name
 
-   import_simple: opt_afi_specification import_factor
+opt_protocol_from:
+    | T_PROTOCOL T_WORD
 
-   export_simple: opt_afi_specification export_factor
+opt_protocol_into:
+    | T_INTO T_WORD
 
-   afi_import_exp: opt_afi_specification import_exp
+import_simple: opt_afi_specification import_factor
 
-   afi_export_exp: opt_afi_specification export_exp
+export_simple: opt_afi_specification export_factor
 
-   import_exp: import_term
-       | import_term T_EXCEPT afi_import_exp
-       | import_term T_REFINE afi_import_exp
+afi_import_exp: opt_afi_specification import_exp
 
-   import_factor_list: import_factor ';'
-       | import_factor_list import_factor ';'
+afi_export_exp: opt_afi_specification export_exp
 
-   import_term: import_factor ';'
-       | '{' import_factor_list '}'
+import_exp: import_term
+    | import_term T_EXCEPT afi_import_exp
+    | import_term T_REFINE afi_import_exp
 
-   export_exp: export_term
-       | export_term T_EXCEPT afi_export_exp
-       | export_term T_REFINE afi_export_exp
+import_factor_list: import_factor ';'
+    | import_factor_list import_factor ';'
 
-   export_factor_list: export_factor ';'
-       | export_factor_list export_factor ';'
+import_term: import_factor ';'
+    | '{' import_factor_list '}'
 
-   export_term: export_factor ';'
-       | '{' export_factor_list '}'
+export_exp: export_term
+    | export_term T_EXCEPT afi_export_exp
+    | export_term T_REFINE afi_export_exp
 
-   import_factor: import_peering_action_list T_ACCEPT filter
+export_factor_list: export_factor ';'
+    | export_factor_list export_factor ';'
 
-   export_factor: export_peering_action_list T_ANNOUNCE filter
-
+export_term: export_factor ';'
+    | '{' export_factor_list '}'
 
 
 
@@ -450,22 +450,32 @@ Snijders                Expires November 24, 2015               [Page 8]
 Internet-Draft         The via attributes in RPSL               May 2015
 
 
-   peering: as_expression opt_router_expression opt_router_expression_with_at
-       | T_PRNGNAME
+import_factor: import_peering_action_list T_ACCEPT filter
 
-   // Below are two grammar rules that actually differ
-   // from mp-import: + mp-export:
+export_factor: export_peering_action_list T_ANNOUNCE filter
 
-   import_peering_action_list: peering T_FROM peering opt_action
-       | import_peering_action_list peering T_FROM peering opt_action
+peering: as_expression opt_router_expression opt_router_expression_with_at
+    | T_PRNGNAME
 
-   export_peering_action_list: peering T_TO peering opt_action
-       | export_peering_action_list peering T_TO peering opt_action
+// Below are two grammar rules that actually differ
+// from mp-import: + mp-export:
+
+import_peering_action_list: peering T_FROM peering opt_action
+    | import_peering_action_list peering T_FROM peering opt_action
+
+export_peering_action_list: peering T_TO peering opt_action
+    | export_peering_action_list peering T_TO peering opt_action
 
 
                                  Figure 5
 
-Appendix B.  Document Change Log
+Appendix B.  TODO
+
+   (RFC Editor - this Appendix can be removed upon publication as RFC)
+
+   1.  Add python parser example based on Grako EBNF.
+
+Appendix C.  Document Change Log
 
    (RFC Editor - this Appendix can be removed upon publication as RFC)
 
@@ -486,6 +496,18 @@ Appendix B.  Document Change Log
 
        A.  Updated current IRR implementations.
 
+   5.  Changes to draft-grow-rpsl-via-01.txt
+
+
+
+
+Snijders                Expires November 24, 2015               [Page 9]
+
+Internet-Draft         The via attributes in RPSL               May 2015
+
+
+       A.  Bump version - add TODO.
+
 Author's Address
 
    Job Snijders
@@ -501,4 +523,38 @@ Author's Address
 
 
 
-Snijders                Expires November 24, 2015               [Page 9]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Snijders                Expires November 24, 2015              [Page 10]
