@@ -3,15 +3,15 @@
 
 
 Network Working Group                                        J. Snijders
-Internet-Draft                                               Independent
-Updates: 4012 (if approved)                                     May 2014
+Internet-Draft                                                       NTT
+Updates: 4012 (if approved)                                 May 23, 2015
 Intended status: Standards Track
-Expires: November 2, 2014
+Expires: November 24, 2015
 
 
       The "import-via" and "export-via" attributes in RPSL Policy
                              Specifications
-                      draft-ietf-grow-rpsl-via-00
+                      draft-ietf-grow-rpsl-via-01
 
 Abstract
 
@@ -34,11 +34,11 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on November 2, 2014.
+   This Internet-Draft will expire on November 24, 2015.
 
 Copyright Notice
 
-   Copyright (c) 2014 IETF Trust and the persons identified as the
+   Copyright (c) 2015 IETF Trust and the persons identified as the
    document authors.  All rights reserved.
 
    This document is subject to BCP 78 and the IETF Trust's Legal
@@ -53,9 +53,9 @@ Copyright Notice
 
 
 
-Snijders                Expires November 2, 2014                [Page 1]
+Snijders                Expires November 24, 2015               [Page 1]
 
-Internet-Draft         The via attributes in RPSL               May 2014
+Internet-Draft         The via attributes in RPSL               May 2015
 
 
 Table of Contents
@@ -109,9 +109,9 @@ Table of Contents
 
 
 
-Snijders                Expires November 2, 2014                [Page 2]
+Snijders                Expires November 24, 2015               [Page 2]
 
-Internet-Draft         The via attributes in RPSL               May 2014
+Internet-Draft         The via attributes in RPSL               May 2015
 
 
 3.  Background
@@ -165,9 +165,9 @@ Internet-Draft         The via attributes in RPSL               May 2014
 
 
 
-Snijders                Expires November 2, 2014                [Page 3]
+Snijders                Expires November 24, 2015               [Page 3]
 
-Internet-Draft         The via attributes in RPSL               May 2014
+Internet-Draft         The via attributes in RPSL               May 2015
 
 
    Attribute  Value                                         Type
@@ -221,9 +221,9 @@ Internet-Draft         The via attributes in RPSL               May 2014
 
 
 
-Snijders                Expires November 2, 2014                [Page 4]
+Snijders                Expires November 24, 2015               [Page 4]
 
-Internet-Draft         The via attributes in RPSL               May 2014
+Internet-Draft         The via attributes in RPSL               May 2015
 
 
    aut-num: AS15562
@@ -243,7 +243,7 @@ Internet-Draft         The via attributes in RPSL               May 2014
                 from AS4247483647
                 accept AS4247483647
    export-via: AS6777
-                to AS4247483647 action community.={5580:40};
+                to AS4247483647 action community.={15562:40};
                 announce AS-SNIJDERS
 
                                  Figure 2
@@ -277,9 +277,9 @@ Internet-Draft         The via attributes in RPSL               May 2014
 
 
 
-Snijders                Expires November 2, 2014                [Page 5]
+Snijders                Expires November 24, 2015               [Page 5]
 
-Internet-Draft         The via attributes in RPSL               May 2014
+Internet-Draft         The via attributes in RPSL               May 2015
 
 
    take note that in order to break ambiguity, the action corresponding
@@ -333,9 +333,9 @@ Internet-Draft         The via attributes in RPSL               May 2014
 
 
 
-Snijders                Expires November 2, 2014                [Page 6]
+Snijders                Expires November 24, 2015               [Page 6]
 
-Internet-Draft         The via attributes in RPSL               May 2014
+Internet-Draft         The via attributes in RPSL               May 2015
 
 
    [RFC2119]  Bradner, S., "Key words for use in RFCs to Indicate
@@ -389,9 +389,9 @@ Appendix A.  Grammar Rules
 
 
 
-Snijders                Expires November 2, 2014                [Page 7]
+Snijders                Expires November 24, 2015               [Page 7]
 
-Internet-Draft         The via attributes in RPSL               May 2014
+Internet-Draft         The via attributes in RPSL               May 2015
 
 
        | opt_protocol_from opt_protocol_into afi_export_exp
@@ -445,9 +445,9 @@ Internet-Draft         The via attributes in RPSL               May 2014
 
 
 
-Snijders                Expires November 2, 2014                [Page 8]
+Snijders                Expires November 24, 2015               [Page 8]
 
-Internet-Draft         The via attributes in RPSL               May 2014
+Internet-Draft         The via attributes in RPSL               May 2015
 
 
    peering: as_expression opt_router_expression opt_router_expression_with_at
@@ -489,16 +489,16 @@ Appendix B.  Document Change Log
 Author's Address
 
    Job Snijders
-   Independent
+   NTT
    Theodorus Majofskistraat 100
    Amsterdam  1065 SZ
    NL
 
-   Email: job@instituut.net
+   Email: job@ntt.net
 
 
 
 
 
 
-Snijders                Expires November 2, 2014                [Page 9]
+Snijders                Expires November 24, 2015               [Page 9]
